@@ -18,7 +18,7 @@
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
   
-  <title>Haruhi&#39;s Second Blog - Haruhi&#39;s Blog</title>
+  <title>剑指offer(Java基础必备知识点) - Haruhi&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
 
@@ -175,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Haruhi's Second Blog">
+            <span class="h2" id="subtitle" title="剑指offer(Java基础必备知识点)">
               
             </span>
 
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      30 字
+      41.5k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      449
        分钟
     </span>
   
@@ -237,10 +237,1202 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Haruhi&#39;s Second Blog</h1>
+            <h1 style="display: none">剑指offer(Java基础必备知识点)</h1>
             
             <div class="markdown-body">
-              <p>Welcome to Haruhi’s Second Blog! This is my first post.  If you get any problems , you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+              <h3 id="javaSE"><a href="#javaSE" class="headerlink" title="javaSE"></a>javaSE</h3><h5 id="java三大特性"><a href="#java三大特性" class="headerlink" title="java三大特性"></a>java三大特性</h5><ul>
+<li><p>封装<br>隐藏对象的属性和实现细节，仅仅对外公开接口。<br>封装具有一下优点：<br>便于使用者正确、方便的使用系统，防止使用者错误修改系统属性；<br>有助于建立各个系统之间的松耦合关系；<br>提高软件的可重用性；<br>降低了大型系统的风险，即便整个系统不成功，个别独立的子系统有可能还有价值。<br>封装的两大原则：<br>把尽可能多的东西藏起来，对外提供简洁的接口；<br>把所有的属性封装起来。</p>
+</li>
+<li><p>继承<br>子类和父类之间的继承关系，子类可以获取到父类的属性和方法。<br>注：关于子类能否继承父类的私有方法？<br>从语言角度上说：JDK官方文档明确说明子类不能继承父类的私有方法；<br>但从内存角度来说，jvm在实例化子类对象之前，会先在内存中创建一个父类对象，然后在父类对象外部放上子类独有的属性，两者合起来形成一个子类对象。所以子类确实拥有父类所有的属性和方法，但是父类中的私有方法子类无法访问。</p>
+</li>
+<li><p>多态<br>java语言允许某个类型的引用变量引用子类的实例，而且可以对这个引用变量进行类型转换。</p>
+</li>
+</ul>
+<h5 id="JDK-和-JRE-有什么区别？"><a href="#JDK-和-JRE-有什么区别？" class="headerlink" title="JDK 和 JRE 有什么区别？"></a>JDK 和 JRE 有什么区别？</h5><p>JDK：Java Development Kit 的简称，Java 开发工具包，提供了 Java 的开发环境和运行环境。<br>JRE：Java Runtime Environment 的简称，Java 运行环境，为 Java 的运行提供了所需环境。<br>具体来说 JDK 其实包含了 JRE，同时还包含了编译 Java 源码的编译器 Javac，还包含了很多 Java 程序调试和分析的工具。简单来说：如果你需要运行 Java 程序，只需安装 JRE 就可以了，如果你需要编写 Java 程序，需要安装 JDK。</p>
+<h5 id="和-equals-的区别是什么？"><a href="#和-equals-的区别是什么？" class="headerlink" title="== 和 equals 的区别是什么？"></a>== 和 equals 的区别是什么？</h5><p>== 对于基本类型来说是值比较，对于引用类型来说是比较的是引用；<br>equals 默认情况下是引用比较，只是很多类重新了 equals 方法，比如 String、Integer 等把它变成了值比较，所以一般情况下 equals 比较的是值是否相等。</p>
+<h5 id="final-在-Java-中有什么作用？"><a href="#final-在-Java-中有什么作用？" class="headerlink" title="final 在 Java 中有什么作用？"></a>final 在 Java 中有什么作用？</h5><p>final 修饰的类叫最终类，该类不能被继承。<br>final 修饰的方法不能被重写。<br>final 修饰的变量叫常量，常量必须初始化，初始化之后值就不能被修改。</p>
+<h5 id="String的特点"><a href="#String的特点" class="headerlink" title="String的特点"></a>String的特点</h5><ul>
+<li><p>字符串不变：字符串的值在创建后不能被更改</p>
+</li>
+<li><p>因为String对象是不可变的，可以把一些字符串存到常量池中，字符串在常量池中，可以被共享</p>
+</li>
+<li><p>字符串对象底层的存储：<br>JDK1.9之前：底层是用 char[ ] 存储<br>JDK1.9之后：底层选用 byte[ ] 存储</p>
+</li>
+<li><p>String 类型不能被继承，因为 String 是由 final 修饰的</p>
+</li>
+</ul>
+<h5 id="String-类的常用方法都有那些？"><a href="#String-类的常用方法都有那些？" class="headerlink" title="String 类的常用方法都有那些？"></a>String 类的常用方法都有那些？</h5><p>indexOf()：返回指定字符的索引。<br>charAt()：返回指定索引处的字符。<br>replace()：字符串替换。<br>trim()：去除字符串两端空白。<br>split()：分割字符串，返回一个分割后的字符串数组。<br>getBytes()：返回字符串的 byte 类型数组。<br>length()：返回字符串长度。<br>toLowerCase()：将字符串转成小写字母。<br>toUpperCase()：将字符串转成大写字符。<br>substring()：截取字符串。<br>equals()：字符串比较。</p>
+<h5 id="String-StringBuilder-StringBuffer三者的区别"><a href="#String-StringBuilder-StringBuffer三者的区别" class="headerlink" title="String,StringBuilder,StringBuffer三者的区别"></a>String,StringBuilder,StringBuffer三者的区别</h5><ul>
+<li><p>String和StringBuilder的本质区别<br>String是一个不可改变的字符序列.</p>
+<pre><code> StringBuilder是一个可以改变的字符序列.
+</code></pre>
+</li>
+<li><p>常见的字符拼接,该选择谁</p>
+<pre><code>推荐使用StringBuilder,因为拼接的效率高
+</code></pre>
+</li>
+<li><p>StringBuilder和StringBuffer的区别<br>一、StringBuilder和StringBuffer的功能是完全一致的.<br>二、不同点<br> StringBuffer是jdk1.0出现的,线程安全(同步):效率低.<br> StringBuilder是jdk1.5出现的,线程不安全(不同步):效率高.</p>
+</li>
+</ul>
+<h5 id="重载与重写的区别"><a href="#重载与重写的区别" class="headerlink" title="重载与重写的区别"></a>重载与重写的区别</h5><table>
+<thead>
+<tr>
+<th></th>
+<th>重写（Overriding）</th>
+<th>重载（Overloading）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>类的数量</td>
+<td>父子类、接口与实现类</td>
+<td>本类</td>
+</tr>
+<tr>
+<td>方法名称</td>
+<td>一致</td>
+<td>一致</td>
+</tr>
+<tr>
+<td>参数列表</td>
+<td>一定不能修改</td>
+<td>必须修改</td>
+</tr>
+<tr>
+<td>返回类型</td>
+<td>一定不能修改</td>
+<td>可以修改</td>
+</tr>
+<tr>
+<td>异常</td>
+<td>可以减少或删除，但不能扩展</td>
+<td>可以修改</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>重载（Overloading）<br>重载发生在本类,方法名相同,参数列表不同,与返回值无关,只和方法名,参数列表,参数的类型有关<br>重载（Overload）:首先是位于一个类之中或者其子类中，具有相同的方法名，但是方法的参数不同，返回值类型可以相同也可以不同。<br>（1）：方法名必须相同<br>（2）：方法的参数列表一定不一样。<br>（3）：访问修饰符和返回值类型可以相同也可以不同。<br>其实简单而言：重载就是对于不同的情况写不同的方法。 比如，同一个类中，写不同的构造函数用于初始化不同的参数。</p>
+</li>
+<li><p>重写（Overriding）<br>重写发生在父类子类之间,比如所有类都是继承与Object类的,Object类中本身就有equals,hashcode,toString方法等.在任意子类中定义了重名和同样的参数列表就构成方法重写.<br>重写（override）：一般都是表示子类和父类之间的关系，其主要的特征是：方法名相同，参数相同，但是具体的实现不同。<br>重写的特征：<br>（1）：方法名必须相同，返回值类型必须相同<br>（2）：参数列表必须相同<br>（3）：访问权限不能比父类中被重写的方法的访问权限更低。例如：如果父类的一个方法被声明为public，那么在子类中重写该方法就不能声明为protected。<br>（4）：子类和父类在同一个包中，那么子类可以重写父类所有方法，除了声明为private和final的方法。<br>（5）：构造方法不能被重写<br>简单而言：就是具体的实现类对于父类的该方法实现不满意，需要自己在写一个满足于自己要求的方法。</p>
+</li>
+</ul>
+<h5 id="抽象类与接口区别"><a href="#抽象类与接口区别" class="headerlink" title="抽象类与接口区别"></a>抽象类与接口区别</h5><p>抽象类可以有构造方法，接口中不能有构造方法<br>抽象类中可以有普通成员变量，接口中没有普通成员变量<br>抽象类中可以包含非抽象的普通方法，接口中的所有方法必须都是抽象的<br>抽象类中的抽象方法的访问类型可以是public，protected，但接口中的抽象方法只能是public类型的，并且默认即为public abstract类型<br>抽象类中可以包含静态方法，接口中不能包含静态方法<br>抽象类和接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是public static final类型，并且默认即为public static final类型<br>一个类可以实现多个接口，但只能继承一个抽象类。<br>接口关注的是功能，抽象类关注的抽象现实中事物</p>
+<h5 id="类的实例化方法调用顺序"><a href="#类的实例化方法调用顺序" class="headerlink" title="类的实例化方法调用顺序"></a>类的实例化方法调用顺序</h5><p>​    此题考察的是类加载器实例化时进行的操作步骤（加载–&gt;连接-&gt;初始化）。<br>​    父类静态代变量、<br>​    父类静态代码块、<br>​    子类静态变量、<br>​    子类静态代码块、<br>​    父类非静态变量（父类实例成员变量）、<br>​    父类构造函数、<br>​    子类非静态变量（子类实例成员变量）、<br>​    子类构造函数。</p>
+<h5 id="Java的8种基本数据类型"><a href="#Java的8种基本数据类型" class="headerlink" title="Java的8种基本数据类型"></a>Java的8种基本数据类型</h5><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>数据类型</th>
+<th>位数</th>
+<th>默认值</th>
+<th>取值范围</th>
+<th>举例说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>byte(位)</td>
+<td>8</td>
+<td>0</td>
+<td>-2^7 - 2^7-1</td>
+<td>byte b = 10;</td>
+</tr>
+<tr>
+<td>2</td>
+<td>short(短整数)</td>
+<td>16</td>
+<td>0</td>
+<td>-2^15 - 2^15-1</td>
+<td>short s = 10;</td>
+</tr>
+<tr>
+<td>3</td>
+<td>int(整数)</td>
+<td>32</td>
+<td>0</td>
+<td>-2^31 - 2^31-1</td>
+<td>int i = 10;</td>
+</tr>
+<tr>
+<td>4</td>
+<td>long(长整数)</td>
+<td>64</td>
+<td>0</td>
+<td>-2^63 - 2^63-1</td>
+<td>long l = 10l;</td>
+</tr>
+<tr>
+<td>5</td>
+<td>float(单精度)</td>
+<td>32</td>
+<td>0.0</td>
+<td>-2^31 - 2^31-1</td>
+<td>float f = 10.0f;</td>
+</tr>
+<tr>
+<td>6</td>
+<td>double(双精度)</td>
+<td>64</td>
+<td>0.0</td>
+<td>-2^63 - 2^63-1</td>
+<td>double d = 10.0d;</td>
+</tr>
+<tr>
+<td>7</td>
+<td>char(字符)</td>
+<td>16</td>
+<td>空</td>
+<td>0 - 2^16-1</td>
+<td>char c = ‘c’;</td>
+</tr>
+<tr>
+<td>8</td>
+<td>boolean(布尔值)</td>
+<td>8</td>
+<td>false</td>
+<td>true、false</td>
+<td>boolean b = true;</td>
+</tr>
+</tbody></table>
+<h5 id="Java中的基本类型和包装类型区别"><a href="#Java中的基本类型和包装类型区别" class="headerlink" title="Java中的基本类型和包装类型区别"></a>Java中的基本类型和包装类型区别</h5><ol>
+<li>包装类型可以为 null，而基本类型不可以</li>
+<li>包装类型可用于泛型，而基本类型不可以</li>
+<li>基本类型比包装类型更高效</li>
+<li>两个包装类型的值可以相同，但却不相等</li>
+<li>自动装箱和自动拆箱<br>既然有了基本类型和包装类型，肯定有些时候要在它们之间进行转换。把基本类型转换成包装类型的过程叫做装箱（boxing）。反之，把包装类型转换成基本类型的过程叫做拆箱（unboxing）。</li>
+</ol>
+<h5 id="int和Integer的区别"><a href="#int和Integer的区别" class="headerlink" title="int和Integer的区别"></a>int和Integer的区别</h5><p>1、Integer是int的包装类，int则是java的一种基本数据类型<br>2、Integer变量必须实例化后才能使用，而int变量不需要<br>3、Integer实际是对象的引用，当new一个Integer时，实际上是生成一个指针指向此对象；而int则是直接存储数据值<br>4、Integer的默认值是null，int的默认值是0</p>
+<ul>
+<li><p>java对于-128到127之间的数，会进行缓存，Integer i = 127时，会将127进行缓存，下次再写Integer j = 127时，就会直接从缓存中取，就不会new了,代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Integer i=<span class="hljs-number">128</span>,j=<span class="hljs-number">128</span>,a=<span class="hljs-number">127</span>,b=<span class="hljs-number">127</span>;<br>System.out.println(i==j);<span class="hljs-comment">//false</span><br>System.out.println(a==b);<span class="hljs-comment">//true</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h4><h5 id="Collection接口包含的子接口和实现类"><a href="#Collection接口包含的子接口和实现类" class="headerlink" title="Collection接口包含的子接口和实现类?"></a><strong>Collection接口包含的子接口和实现类?</strong></h5><p>Collection接口的子接口包括：Set接口和List接口<br>Set接口的实现类主要有：HashSet、TreeSet、LinkedHashSet等<br>List接口的实现类主要有：ArrayList、LinkedList、Stack以及Vector等</p>
+<h5 id="ArrayList和LinkedList的区别？"><a href="#ArrayList和LinkedList的区别？" class="headerlink" title="ArrayList和LinkedList的区别？"></a>ArrayList和LinkedList的区别？</h5><p>LinkedList 实现了 List 和 Deque 接口，一般称为双向链表；ArrayList 实现了 List 接口，动态数组；<br>LinkedList 在插入和删除数据时效率更高，ArrayList 在查找某个 index 的数据时效率更高；<br>LinkedList 比 ArrayList 需要更多的内存；</p>
+<h5 id="ArrayList-和-Vector-的区别？"><a href="#ArrayList-和-Vector-的区别？" class="headerlink" title="ArrayList 和 Vector 的区别？"></a>ArrayList 和 Vector 的区别？</h5><p>这两个类都实现了 List 接口（List 接口继承了 Collection 接口），他们都是有序集合，即存储在这两个集合中的元素位置都是有顺序的，相当于一种动态的数组，我们以后可以按位置索引来取出某个元素，并且其中的数据是允许重复的，这是与 HashSet 之类的集合的最大不同处，HashSet 之类的集合不可以按索引号去检索其中的元素，也不允许有重复的元素。</p>
+<p>ArrayList 与 Vector 的区别主要包括两个方面：</p>
+<ol>
+<li>同步性：<br>Vector 是线程安全的，也就是说它的方法之间是线程同步（加了synchronized 关键字）的，而 ArrayList 是线程不安全的，它的方法之间是线程不同步的。如果只有一个线程会访问到集合，那最好是使用 ArrayList，因为它不考虑线程安全的问题，所以效率会高一些；如果有多个线程会访问到集合，那最好是使用 Vector，因为不需要我们自己再去考虑和编写线程安全的代码。</li>
+<li>数据增长：<br>ArrayList 与 Vector 都有一个初始的容量大小，当存储进它们里面的元素的个人超过了容量时，就需要增加 ArrayList 和 Vector 的存储空间，每次要增加存储空间时，不是只增加一个存储单元，而是增加多个存储单元，每次增加的存储单元的个数在内存空间利用与程序效率之间要去的一定的平衡。Vector 在数据满时（加载因子1）增长为原来的两倍（扩容增量：原容量的 2 倍），而 ArrayList 在数据量达到容量的一半时（加载因子 0.5）增长为原容量的 (0.5 倍 + 1) 个空间。</li>
+</ol>
+<h5 id="HashSet是如何保证数据不可重复的？"><a href="#HashSet是如何保证数据不可重复的？" class="headerlink" title="HashSet是如何保证数据不可重复的？"></a>HashSet是如何保证数据不可重复的？</h5><p>HashSet的底层其实就是HashMap，只不过我们<strong>HashSet是实现了Set接口并且把数据作为K值，而V值一直使用一个相同的虚值来保存</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Object PRESENT = <span class="hljs-keyword">new</span> Object();<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">add</span><span class="hljs-params">(E e)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> map.put(e, PRESENT)==<span class="hljs-keyword">null</span>;<span class="hljs-comment">// 调用HashMap的put方法,PRESENT是一个至始至终都相同的虚值</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="LinkedList的在任意位置插入元素方法怎么实现的"><a href="#LinkedList的在任意位置插入元素方法怎么实现的" class="headerlink" title="LinkedList的在任意位置插入元素方法怎么实现的?"></a><u>LinkedList的在任意位置插入元素方法怎么实现的?</u></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 作用：在指定位置添加元素</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index, E element)</span> </span>&#123;<br>            <span class="hljs-comment">// 检查插入位置的索引的合理性</span><br>            checkPositionIndex(index);<br>            <span class="hljs-keyword">if</span> (index == size)<br>                <span class="hljs-comment">// 插入的情况是尾部插入的情况：调用linkLast（）解释如上。</span><br>                linkLast(element);<br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-comment">// 插入的情况是非尾部插入的情况（中间插入）：linkBefore（）见下面。</span><br>                linkBefore(element, node(index));<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkPositionIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>            <span class="hljs-keyword">if</span> (!isPositionIndex(index))<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IndexOutOfBoundsException(outOfBoundsMsg(index));<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isPositionIndex</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span> </span>&#123;<br>            <span class="hljs-keyword">return</span> index &gt;= <span class="hljs-number">0</span> &amp;&amp; index &lt;= size;<br>        &#125;<br>        <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">linkBefore</span><span class="hljs-params">(E e, Node&lt;E&gt; succ)</span> </span>&#123;<br>            <span class="hljs-comment">// assert succ != null;</span><br>            <span class="hljs-keyword">final</span> Node&lt;E&gt; pred = succ.prev;  <span class="hljs-comment">// 得到插入位置元素的前继节点</span><br>            <span class="hljs-keyword">final</span> Node&lt;E&gt; newNode = <span class="hljs-keyword">new</span> Node&lt;&gt;(pred, e, succ);  <span class="hljs-comment">// 创建新节点，其前继节点是succ的前节点，后接点是succ节点</span><br>            succ.prev = newNode;  <span class="hljs-comment">// 更新插入位置（succ）的前置节点为新节点</span><br>            <span class="hljs-keyword">if</span> (pred == <span class="hljs-keyword">null</span>)<br>                <span class="hljs-comment">// 如果pred为null，说明该节点插入在头节点之前，要重置first头节点 </span><br>                first = newNode;<br>            <span class="hljs-keyword">else</span><br>                <span class="hljs-comment">// 如果pred不为null，那么直接将pred的后继指针指向newNode即可</span><br>                pred.next = newNode;<br>            size++;<br>            modCount++;<br>        &#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="HashMap的特性"><a href="#HashMap的特性" class="headerlink" title="HashMap的特性"></a>HashMap的特性</h5><ul>
+<li>Map集合的特点<br>Map是一个双列集合,将键映射到值的对象.<br>Map集合的数据结构,只针对键有效,跟值没关系.<br>一个映射不能包含重复的键,每个键最多只能映射一个值.</li>
+<li>HashMap的数据结构<br>哈希表结构:数组+链表<br>通过哈希表结构配合对象的hashCode和equals方法就可以确保键的唯一性.</li>
+</ul>
+<h5 id="HashMap-HashTable和ConcurrentHashMap的区别？"><a href="#HashMap-HashTable和ConcurrentHashMap的区别？" class="headerlink" title="HashMap,HashTable和ConcurrentHashMap的区别？"></a>HashMap,HashTable和ConcurrentHashMap的区别？</h5><p><strong>HashMap和HashTable</strong></p>
+<ul>
+<li>共同点<br>底层都是使用哈希表 + 链表的实现方式</li>
+<li>区别<br>1.从层级结构上看，HashMap、HashTable有一个共用的Map接口。另外，HashTable还单独继承了一个抽象Dictionary<br>2.HashTable诞生自JDK1.0，HashMap从JDK1.2之后才有<br>3.HashTable线程安全，HashMap线程不安全<br>4.初始值和扩容方式不同。HashTable的初始值为11，扩容为原大小的<code>2*d+1</code>。容量大小都采用奇数且为素数，且采用取模法，这种方式散列更均匀。但有个缺点就是对素数取模的性能较低（涉及到除法运算），而HashTable的长度都是2的次幂，设计就较为巧妙，前面章节也提到过，这种方式的取模都是直接做位运算，性能较好<br>5.HashMap的key、value都可为null，且value可多次为null，key多次为null时会覆盖。当HashTable的key、value都不可为null，否则直接NPE(NullPointException)</li>
+</ul>
+<p><strong>ConcurrentHashMap</strong></p>
+<p>结合了 HashMap 和 HashTable 二者的优势。HashMap 没有考虑同步，HashTable 考虑了同步的问题。但是 HashTable 在每次同步执行时都要锁住整个结构。 ConcurrentHashMap 锁的方式是稍微细粒度的。</p>
+<p><strong>补充:HashMap线程不安全在哪？</strong></p>
+<ul>
+<li>数据覆盖问题</li>
+<li>扩容时导致死循环<br>可以将map转换为包装类解决线程不安全问题,Collections.synchronizedMap()方法,推荐使用ConcurrentHashMap</li>
+</ul>
+<h5 id="遍历map有哪些方式"><a href="#遍历map有哪些方式" class="headerlink" title="遍历map有哪些方式?"></a>遍历map有哪些方式?</h5><p>遍历HashMap的entrySet键值对集合-entrySet()<br>遍历HashMap键的Set集合获取值-keySet()<br>遍历HashMap“值”的集合-values()</p>
+<p><strong>1.</strong> <strong>Map****集合几种遍历方式?</strong></p>
+<p>第一种:根据键找值方式遍历</p>
+<p>第二种:获取所有的键值对对象集合,通过迭代器遍历</p>
+<p>第三种:获取所有的键值对对象集合,通过增强for遍历</p>
+<p>第四种:通过Map集合中values方法,拿到所有的值</p>
+<h5 id="为什么HashMap中String、Integer这样的包装类适合作为key"><a href="#为什么HashMap中String、Integer这样的包装类适合作为key" class="headerlink" title="为什么HashMap中String、Integer这样的包装类适合作为key?"></a>为什么HashMap中String、Integer这样的包装类适合作为key?</h5><p>String、Integer等包装类的特性能够保证Hash值的不可更改性和计算准确性，能够有效的减少Hash碰撞的几率</p>
+<ul>
+<li>都是final类型，即不可变性，保证key的不可更改性，不会存在获取hash值不同的情况</li>
+<li>内部已重写了<code>equals()</code>、<code>hashCode()</code>等方法，遵守了HashMap内部的规范（不清楚可以看看putValue的过程），不容易出现Hash值计算错误的情况；</li>
+</ul>
+<h5 id="谈一下HashMap的底层原理是什么？"><a href="#谈一下HashMap的底层原理是什么？" class="headerlink" title="谈一下HashMap的底层原理是什么？"></a>谈一下HashMap的底层原理是什么？</h5><p>基于hashing的原理，jdk8后采用数组+链表+红黑树的数据结构。我们通过put和get存储和获取对象。当我们给put()方法传递键和值时，先对键做一个hashCode()的计算来得到它在bucket数组中的位置来存储Entry对象。当获取对象时，通过get获取到bucket的位置，再通过键对象的equals()方法找到正确的键值对，然后在返回值对象。</p>
+<h5 id="谈一下hashMap中put是如何实现的？"><a href="#谈一下hashMap中put是如何实现的？" class="headerlink" title="谈一下hashMap中put是如何实现的？"></a>谈一下hashMap中put是如何实现的？</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">final</span> V <span class="hljs-title">putVal</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hash, K key, V value, <span class="hljs-keyword">boolean</span> onlyIfAbsent,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">boolean</span> evict)</span> </span>&#123;<br>    HashMap.Node&lt;K,V&gt;[] tab; HashMap.Node&lt;K,V&gt; p; <span class="hljs-keyword">int</span> n, i;<br>    <span class="hljs-comment">// 1.如果table为空或者长度为0，即没有元素，那么使用resize()方法扩容</span><br>        <span class="hljs-keyword">if</span> ((tab = table) == <span class="hljs-keyword">null</span> || (n = tab.length) == <span class="hljs-number">0</span>)<br>        n = (tab = resize()).length;<br>    <span class="hljs-comment">// 2.计算插入存储的数组索引i，此处计算方法同 1.7 中的indexFor()方法</span><br>    <span class="hljs-comment">// 如果数组为空，即不存在Hash冲突，则直接插入数组</span><br>    <span class="hljs-keyword">if</span> ((p = tab[i = (n - <span class="hljs-number">1</span>) &amp; hash]) == <span class="hljs-keyword">null</span>)<br>        tab[i] = newNode(hash, key, value, <span class="hljs-keyword">null</span>);<br>        <span class="hljs-comment">// 3.插入时，如果发生Hash冲突，则依次往下判断</span><br>    <span class="hljs-keyword">else</span> &#123;<br>        HashMap.Node&lt;K,V&gt; e; K k;<br>        <span class="hljs-comment">// a.判断table[i]的元素的key是否与需要插入的key一样，若相同则直接用新的value覆盖掉旧的value</span><br>        <span class="hljs-comment">// 判断原则equals() - 所以需要当key的对象重写该方法</span><br>        <span class="hljs-keyword">if</span> (p.hash == hash &amp;&amp;<br>                ((k = p.key) == key || (key != <span class="hljs-keyword">null</span> &amp;&amp; key.equals(k))))<br>            e = p;<br>            <span class="hljs-comment">// b.继续判断：需要插入的数据结构是红黑树还是链表</span><br>            <span class="hljs-comment">// 如果是红黑树，则直接在树中插入 or 更新键值对</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (p <span class="hljs-keyword">instanceof</span> HashMap.TreeNode)<br>            e = ((HashMap.TreeNode&lt;K,V&gt;)p).putTreeVal(<span class="hljs-keyword">this</span>, tab, hash, key, value);<br>            <span class="hljs-comment">// 如果是链表，则在链表中插入 or 更新键值对</span><br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// i .遍历table[i]，判断key是否已存在：采用equals对比当前遍历结点的key与需要插入数据的key</span><br>            <span class="hljs-comment">//    如果存在相同的，则直接覆盖</span><br>            <span class="hljs-comment">// ii.遍历完毕后任务发现上述情况，则直接在链表尾部插入数据</span><br>            <span class="hljs-comment">//    插入完成后判断链表长度是否 &gt; 8：若是，则把链表转换成红黑树</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> binCount = <span class="hljs-number">0</span>; ; ++binCount) &#123;<br>                <span class="hljs-keyword">if</span> ((e = p.next) == <span class="hljs-keyword">null</span>) &#123;<br>                    p.next = newNode(hash, key, value, <span class="hljs-keyword">null</span>);<br>                    <span class="hljs-keyword">if</span> (binCount &gt;= TREEIFY_THRESHOLD - <span class="hljs-number">1</span>) <span class="hljs-comment">// -1 for 1st</span><br>                        treeifyBin(tab, hash);<br>                    <span class="hljs-keyword">break</span>;<br>                &#125;<br>                <span class="hljs-keyword">if</span> (e.hash == hash &amp;&amp;<br>                        ((k = e.key) == key || (key != <span class="hljs-keyword">null</span> &amp;&amp; key.equals(k))))<br>                    <span class="hljs-keyword">break</span>;<br>                p = e;<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">// 对于i 情况的后续操作：发现key已存在，直接用新value覆盖旧value&amp;返回旧value</span><br>        <span class="hljs-keyword">if</span> (e != <span class="hljs-keyword">null</span>) &#123; <span class="hljs-comment">// existing mapping for key</span><br>            V oldValue = e.value;<br>            <span class="hljs-keyword">if</span> (!onlyIfAbsent || oldValue == <span class="hljs-keyword">null</span>)<br>                e.value = value;<br>            afterNodeAccess(e);<br>            <span class="hljs-keyword">return</span> oldValue;<br>        &#125;<br>    &#125;<br>    ++modCount;<br>    <span class="hljs-comment">// 插入成功后，判断实际存在的键值对数量size &gt; 最大容量</span><br>    <span class="hljs-comment">// 如果大于则进行扩容</span><br>    <span class="hljs-keyword">if</span> (++size &gt; threshold)<br>        resize();<br>    <span class="hljs-comment">// 插入成功时会调用的方法（默认实现为空）</span><br>    afterNodeInsertion(evict);<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><img src="C:/Users/MashiroShiina/AppData/Roaming/Typora/draftsRecover/mapput.png" srcset="/img/loading.gif" lazyload alt="mapput"></p>
+<h5 id="线程安全的集合有哪些"><a href="#线程安全的集合有哪些" class="headerlink" title="线程安全的集合有哪些?"></a>线程安全的集合有哪些?</h5><p><strong>早期线程安全的集合</strong><br>早期的线程安全的集合，Vector和HashTable<br><strong>Collections包装方法</strong><br>Vector和HashTable被弃用后，它们被ArrayList和HashMap代替，但它们不是线程安全的，所以Collections工具类中提供了相应的包装方法把它们包装成线程安全的集合</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">List&lt;E&gt; synArrayList = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Collections</span>.</span></span>synchronized<span class="hljs-constructor">List(<span class="hljs-params">new</span> ArrayList&lt;E&gt;()</span>);<br>Set&lt;E&gt; synHashSet = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Collections</span>.</span></span>synchronized<span class="hljs-constructor">Set(<span class="hljs-params">new</span> HashSet&lt;E&gt;()</span>);<br>Map&lt;K,V&gt; synHashMap = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Collections</span>.</span></span>synchronized<span class="hljs-constructor">Map(<span class="hljs-params">new</span> HashMap&lt;K,V&gt;()</span>);<br></code></pre></td></tr></table></figure>
+
+<p>Collections针对每种集合都声明了一个线程安全的包装类，在原集合的基础上添加了锁对象，集合中的每个方法都通过这个锁对象实现同步<br><strong>java.util.concurrent</strong>包中的集合</p>
+<ul>
+<li>ConcurrentHashMap</li>
+<li>CopyOnWriteArrayList和CopyOnWriteArraySet<br>它们是加了写锁的ArrayList和ArraySet，锁住的是整个对象，但读操作可以并发执行</li>
+<li>除此之外还有ConcurrentSkipListMap、ConcurrentSkipListSet、ConcurrentLinkedQueue、ConcurrentLinkedDeque等，至于为什么没有ConcurrentArrayList，原因是无法设计一个通用的而且可以规避ArrayList的并发瓶颈的线程安全的集合类，只能锁住整个list，这用Collections里的包装类就能办到</li>
+</ul>
+<h5 id="如何实现数组和-List-之间的转换？"><a href="#如何实现数组和-List-之间的转换？" class="headerlink" title="如何实现数组和 List 之间的转换？"></a>如何实现数组和 List 之间的转换？</h5><p>数组转 List：使用 Arrays. asList(array) 进行转换。<br>List 转数组：使用 List 自带的 toArray() 方法。</p>
+<h4 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h4><h5 id="什么是Java中的异常？"><a href="#什么是Java中的异常？" class="headerlink" title="什么是Java中的异常？"></a>什么是Java中的异常？</h5><p>异常是指程序在运行过程中发生的一些不正常事件。（如：除0溢出，数组下标越界，所读取的文件不存在）</p>
+<h5 id="常见的异常类有哪些？"><a href="#常见的异常类有哪些？" class="headerlink" title="常见的异常类有哪些？"></a>常见的异常类有哪些？</h5><p>NullPointerException 空指针异常<br>ClassNotFoundException 指定类不存在<br>NumberFormatException 字符串转换为数字异常<br>IndexOutOfBoundsException 数组下标越界异常<br>ClassCastException 数据类型转换异常<br>FileNotFoundException 文件未找到异常<br>NoSuchMethodException 方法不存在异常<br>IOException IO 异常<br>SocketException Socket 异常</p>
+<h5 id="Java中的异常处理关键字是什么？"><a href="#Java中的异常处理关键字是什么？" class="headerlink" title="Java中的异常处理关键字是什么？"></a>Java中的异常处理关键字是什么？</h5><ul>
+<li>throw：有时我们明确要创建异常对象然后抛出它来停止程序的正常处理。throw关键字用于向运行时抛出异常来处理它</li>
+<li>throws：当我们在方法中抛出任何已检查的异常而不处理它时，我们需要在方法签名中使用throws关键字让调用者程序知道该方法可能抛出的异常。调用方法可以处理这些异常或使用throws关键字将其传播给它的调用方法。我们可以在throws子句中提供多个异常，也可以与main（）方法一起使用。</li>
+<li>try-catch：我们在代码中使用try-catch块进行异常处理。try是块的开始，catch是在try块的末尾处理异常。我们可以使用try有多个catch块，try-catch块也可以嵌套。catch块需要一个应该是Exception类型的参数。</li>
+<li>finally：finally块是可选的，只能用于try-catch块。由于异常会暂停执行过程，因此我们可能会打开一些不会关闭的资源，因此我们可以使用finally块。finally块总是被执行，无论是否发生异常。</li>
+</ul>
+<h5 id="error和exception有什么区别"><a href="#error和exception有什么区别" class="headerlink" title="error和exception有什么区别?"></a>error和exception有什么区别?</h5><ul>
+<li>error 表示恢复不是不可能但很困难的情况下的一种严重问题。比如说内存溢出。不可能指望程序能处理这样的情况</li>
+<li>exception 表示一种设计或实现问题。也就是说，它表示如果程序运行正常，从不会发生的情况。</li>
+</ul>
+<h5 id="try-catch-finally-return执行顺序？"><a href="#try-catch-finally-return执行顺序？" class="headerlink" title="try-catch-finally-return执行顺序？"></a>try-catch-finally-return执行顺序？</h5><ul>
+<li>不管是否有异常产生，finally块中代码都会执行</li>
+<li>当try和catch中有return语句时，finally块仍然会执行</li>
+<li>finally是在return后面的表达式运算执行的，所以函数返回值在finally执行前确定的，无论finally中的代码怎么样，返回</li>
+<li>值都不会改变，仍然是之前return语句中保存的值</li>
+<li>finally中最好不要包含return，否则程序会提前退出，返回值不是try或catch中保存的返回值</li>
+</ul>
+<h5 id="final-finally-finalize的区别？"><a href="#final-finally-finalize的区别？" class="headerlink" title="final, finally, finalize的区别？"></a>final, finally, finalize的区别？</h5><ul>
+<li>final用于声明属性，方法和类，分别表示属性不可交变，方法不可覆盖，类不可继承。</li>
+<li>finally是异常处理语句结构的一部分，表示总是执行。</li>
+<li>finalize是Object类的一个方法，在垃圾收集器执行的时候会调用被回收对象的此方法，供垃圾收集时的其他资源回收，例如关闭文件等（在垃圾回收的时候会调用被回收对象的此方法）</li>
+</ul>
+<h4 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h4><h5 id="什么是线程？"><a href="#什么是线程？" class="headerlink" title="什么是线程？"></a>什么是线程？</h5><p>线程是操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程中的实际运作单位。程序员可以通过它进行多处理器编程，你可以使用多线程对运算密集型任务提速。比如，如果一个线程完成一个任务要100毫秒，那么用十个线程完成改任务只需10毫秒。Java在语言层面对多线程提供了卓越的支持，它也是一个很好的卖点</p>
+<p><strong>1.</strong> <strong>线程和进程的区别？</strong></p>
+<p>l 进程：进程指正在运行的程序。确切的来说，当一个程序进入内存运行，即变成一个进程，进程是处于运行过程中的程序，并且具有一定独立功能。</p>
+<p>l 线程：线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中是可以有多个线程的，这个应用程序也可以称之为多线程程序。</p>
+<p>l 简而言之：一个程序运行后至少有一个进程，一个进程中可以包含多个线程</p>
+<h5 id="线程和进程有什么区别？"><a href="#线程和进程有什么区别？" class="headerlink" title="线程和进程有什么区别？"></a>线程和进程有什么区别？</h5><p>线程是进程的子集，一个进程可以有很多线程，每条线程并行执行不同的任务。不同的进程使用不同的内存空间，而所有的线程共享一片相同的内存空间。别把它和栈内存搞混，每个线程都拥有单独的栈内存用来存储本地数据。</p>
+<h5 id="创建线程的方式"><a href="#创建线程的方式" class="headerlink" title="创建线程的方式"></a>创建线程的方式</h5><ul>
+<li>继承Thread类<br>优点:代码简单<br>缺点:该类无法继承别的类</li>
+<li>实现Runnable接口<br>优点:继承其他类.统一实现该接口的实例可以共享资源.<br>缺点:代码复杂.</li>
+<li>实现Callable接口<br>Callable中的call()方法有返回值,其他和Runnable的run()方法一样.</li>
+<li>线程池方式-<strong>项目中使用的多线程的方式</strong><br>优点:实现自动化装配,易于管理,循环利用资源.</li>
+</ul>
+<h5 id="Thread-类中的start-和-run-方法有什么区别"><a href="#Thread-类中的start-和-run-方法有什么区别" class="headerlink" title="Thread 类中的start() 和 run() 方法有什么区别"></a>Thread 类中的start() 和 run() 方法有什么区别</h5><ul>
+<li>start（）方法来启动线程，真正实现了多线程运行。这时无需等待run方法体代码执行完毕，可以直接继续执行下面的代码；通过调用Thread类的start()方法来启动一个线程， 这时此线程是处于就绪状态， 并没有运行。 然后通过此Thread类调用方法run()来完成其运行操作的， 这里方法run()称为线程体，它包含了要执行的这个线程的内容， Run方法运行结束， 此线程终止。然后CPU再调度其它线程。</li>
+<li>run（）方法当作普通方法的方式调用。程序还是要顺序执行，要等待run方法体执行完毕后，才可继续执行下面的代码； 程序中只有主线程——这一个线程， 其程序执行路径还是只有一条， 这样就没有达到写线程的目的。<br><strong>记住：多线程就是分时利用CPU，宏观上让所有线程一起执行 ，也叫并发</strong></li>
+</ul>
+<h5 id="线程有哪些状态"><a href="#线程有哪些状态" class="headerlink" title="线程有哪些状态"></a>线程有哪些状态</h5><ol>
+<li>初始(NEW)：新创建了一个线程对象，但还没有调用start()方法。</li>
+<li>运行(RUNNABLE)：Java线程中将就绪（ready）和运行中（running）两种状态笼统的称为“运行”。<br>线程对象创建后，其他线程(比如main线程）调用了该对象的start()方法。该状态的线程位于可运行线程池中，等待被线程调度选中，获取CPU的使用权，此时处于就绪状态（ready）。就绪状态的线程在获得CPU时间片后变为运行中状态（running）。</li>
+<li>阻塞(BLOCKED)：表示线程阻塞于锁。</li>
+<li>等待(WAITING)：进入该状态的线程需要等待其他线程做出一些特定动作（通知或中断）。</li>
+<li>超时等待(TIMED_WAITING)：该状态不同于WAITING，它可以在指定的时间后自行返回。</li>
+<li>终止(TERMINATED)：表示该线程已经执行完毕。</li>
+</ol>
+<p>l 就绪(Runnable):线程准备运行，不一定立马就能开始执行。</p>
+<p>l 运行中(Running)：进程正在执行线程的代码。</p>
+<p>l 等待中(Waiting):线程处于阻塞的状态，等待外部的处理结束。</p>
+<p>l 睡眠中(Sleeping)：线程被强制睡眠。</p>
+<p>l I/O阻塞(Blocked on I/O)：等待I/O操作完成。</p>
+<p>l 同步阻塞(Blocked on Synchronization)：等待获取锁。</p>
+<p>l 死亡(Dead)：线程完成了执行。</p>
+<h5 id="wait-和-sleep-方法有什么不同？"><a href="#wait-和-sleep-方法有什么不同？" class="headerlink" title="wait() 和 sleep()方法有什么不同？"></a>wait() 和 sleep()方法有什么不同？</h5><p>Java程序中wait 和 sleep都会造成某种形式的暂停，它们可以满足不同的需要。wait()方法用于线程间通信，如果等待条件为真且其它线程被唤醒时它会释放锁，而sleep()方法仅仅释放CPU资源或者让当前线程停止执行一段时间，但不会释放锁。</p>
+<h5 id="notify-和-notifyAll有什么区别？"><a href="#notify-和-notifyAll有什么区别？" class="headerlink" title="notify 和 notifyAll有什么区别？"></a>notify 和 notifyAll有什么区别？</h5><ul>
+<li><p>共同点：均能唤醒正在等待的线程，并且均是最后只有一个线程获取资源对象的锁。</p>
+</li>
+<li><p>不同点：notify() 只能唤醒一个线程，而notifyall()能够唤醒所有的线程，当线程被唤醒以后所有被唤醒的线程竞争获取资源对象的锁，其中只有一个能够得到对象锁，执行代码。</p>
+<blockquote>
+<p>注意：wait()方法并不是在等待资源的锁，而是在等待被唤醒（notify()），一旦被唤醒后，被唤醒的线程就具备了资源锁（因为无需竞争），直至再次执行wait()方法或者synchronized代码块执行完毕。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="什么是死锁-如何避免死锁？"><a href="#什么是死锁-如何避免死锁？" class="headerlink" title="什么是死锁,如何避免死锁？"></a>什么是死锁,如何避免死锁？</h5><p><strong>死锁</strong>是指两个或两个以上的进程在执行过程中，因争夺资源而造成的一种互相等待的现象，若无外力作用，它们都将无法推进下去。<br>这是一个严重的问题，因为死锁会让你的程序挂起无法完成任务，死锁的发生必须满足以下四个条件：</p>
+<ul>
+<li><p>互斥条件：一个资源每次只能被一个进程使用。</p>
+</li>
+<li><p>请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。</p>
+</li>
+<li><p>不剥夺条件：进程已获得的资源，在末使用完之前，不能强行剥夺。</p>
+</li>
+<li><p>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系。</p>
+<blockquote>
+<p>避免死锁最简单的方法就是阻止循环等待条件，将系统中所有的资源设置标志位、排序，规定所有的进程申请资源必须以一定的顺序（升序或降序）做操作来避免死锁。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="怎么检测一个线程是否拥有锁？"><a href="#怎么检测一个线程是否拥有锁？" class="headerlink" title="怎么检测一个线程是否拥有锁？"></a>怎么检测一个线程是否拥有锁？</h5><p>在java.lang.Thread中有一个方法叫holdsLock()，它返回true如果当且仅当当前线程拥有某个具体对象的锁</p>
+<h5 id="Java中synchronized-和-ReentrantLock-有什么不同？"><a href="#Java中synchronized-和-ReentrantLock-有什么不同？" class="headerlink" title="Java中synchronized 和 ReentrantLock 有什么不同？"></a>Java中synchronized 和 ReentrantLock 有什么不同？</h5><ul>
+<li><p>相似点：<br>这两种同步方式有很多相似之处，它们都是加锁方式同步，而且都是阻塞式的同步，也就是说当如果一个线程获得了对象锁，进入了同步块，其他访问该同步块的线程都必须阻塞在同步块外面等待，而进行线程阻塞和唤醒的代价是比较高的（操作系统需要在用户态与内核态之间来回切换，代价很高，不过可以通过对锁优化进行改善）。</p>
+</li>
+<li><p>区别：<br>这两种方式最大区别就是对于Synchronized来说，它是java语言的关键字，是原生语法层面的互斥，需要jvm实现。</p>
+<p>ReentrantLock它是JDK 1.5之后提供的API层面的互斥锁，需要lock()和unlock()方法配合try/finally语句块来完成。<br> Synchronized进过编译，会在同步块的前后分别形成monitorenter和monitorexit这个两个字节码指令。在执行monitorenter指令时，首先要尝试获取对象锁。如果这个对象没被锁定，或者当前线程已经拥有了那个对象锁，把锁的计算器加1，相应的，在执行monitorexit指令时会将锁计算器就减1，当计算器为0时，锁就被释放了。如果获取对象锁失败，那当前线程就要阻塞，直到对象锁被另一个线程释放为止。<br>由于ReentrantLock是java.util.concurrent包下提供的一套互斥锁，相比Synchronized，ReentrantLock类提供了一些高级功能，主要有以下3项：<br>1.等待可中断，持有锁的线程长期不释放的时候，正在等待的线程可以选择放弃等待，这相当于Synchronized来说可以避免出现死锁的情况。<br>2.公平锁，多个线程等待同一个锁时，必须按照申请锁的时间顺序获得锁，Synchronized锁非公平锁，ReentrantLock默认的构造函数是创建的非公平锁，可以通过参数true设为公平锁，但公平锁表现的性能不是很好。<br>3.锁绑定多个条件，一个ReentrantLock对象可以同时绑定对个对象。</p>
+</li>
+</ul>
+<h5 id="有三个线程T1，T2，T3，怎么确保它们按顺序执行？"><a href="#有三个线程T1，T2，T3，怎么确保它们按顺序执行？" class="headerlink" title="有三个线程T1，T2，T3，怎么确保它们按顺序执行？"></a>有三个线程T1，T2，T3，怎么确保它们按顺序执行？</h5><p>在多线程中有多种方法让线程按特定顺序执行，你可以用线程类的join()方法在一个线程中启动另一个线程，另外一个线程完成该线程继续执行。为了确保三个线程的顺序你应该先启动最后一个(T3调用T2，T2调用T1)，这样T1就会先完成而T3最后完成</p>
+<h5 id="volatile关键字"><a href="#volatile关键字" class="headerlink" title="volatile关键字"></a>volatile关键字</h5><p>保证可见性<br>不能保证原子性<br>禁止指令重排序</p>
+<h5 id="线程池的优势"><a href="#线程池的优势" class="headerlink" title="线程池的优势"></a>线程池的优势</h5><ol>
+<li>降低系统资源消耗，通过重用已存在的线程，降低线程创建和销毁造成的消耗；</li>
+<li>提高系统响应速度，当有任务到达时，通过复用已存在的线程，无需等待新线程的创建便能立即执行；</li>
+<li>方便线程并发数的管控。因为线程若是无限制的创建，可能会导致内存占用过多而产生OOM，并且会造成cpu过度切换（cpu切换线程是有时间成本的（需要保持当前执行线程的现场，并恢复要执行线程的现场））。</li>
+<li>提供更强大的功能，延时定时线程池。</li>
+</ol>
+<h5 id="如何创建线程池"><a href="#如何创建线程池" class="headerlink" title="如何创建线程池"></a>如何创建线程池</h5><p>Executors类提供了4种不同的线程池,线程数不推荐使用Executors创建,建议通过ThreadPoolExecutor的方式创建,可以更明确线程池的运行规则,规避资源耗尽的风险<br>Executors返回的线程池对象弊端如下:<br>1.FixedThreadPool和SingleThreadPool:<br>允许的请求队列长度为Integer.MAX_VALUE,可能会堆积大量的请求,从而导致OOM.<br>2.CachedThreadPool和ScheduledThreadPool:<br>允许的创建线程数量为Integer.MAX_VALUE,可能会创建大量的线程,从而导致OOM.</p>
+<p><strong>四种创建方式</strong></p>
+<ul>
+<li>newCachedThreadPool：用来创建一个可以无限扩大的线程池，适用于负载较轻的场景，执行短期异步任务。（可以使得任务快速得到执行，因为任务时间执行短，可以很快结束，也不会造成cpu过度切换）</li>
+<li>newFixedThreadPool：创建一个固定大小的线程池，因为采用无界的阻塞队列，所以实际线程数量永远不会变化，适用于负载较重的场景，对当前线程数量进行限制。（保证线程数可控，不会造成线程过多，导致系统负载更为严重</li>
+<li>newSingleThreadExecutor：创建一个单线程的线程池，适用于需要保证顺序执行各个任务。</li>
+<li>newScheduledThreadPool：适用于执行延时或者周期性任务。</li>
+</ul>
+<p><strong>七大参数</strong></p>
+<p>int corePoolSize,//核心线程数<br>int maximumPoolSize,//最大线程数<br>long keepAliveTime,//存活时间<br>TimeUnit unit,//存活时间单位<br>BlockingQueue<Runnable> workQueue,//线程阻塞队列<br>ThreadFactory threadFactory,//线程工厂，一般不动<br>RejectedExecutionHandler handler//拒绝策略</p>
+<p><strong>4种拒绝策略</strong><br>策略一：不处理,抛出异常<br>new ThreadPoolExecutor.AbortPolicy()<br>策略二：从哪来回哪去,从主线程来就让主线程处理一起加入处理任务<br>new ThreadPoolExecutor.CallerRunsPolicy()<br>策略三：队列满了尝试和最早的竞争,如果竞争失败就会丢掉,也不会抛出异常<br>new ThreadPoolExecutor.DiscardOldestPolicy()<br>策略四：队列满了不抛出异常,但会丢掉任务<br>new ThreadPoolExecutor.DiscardPolicy()</p>
+<p><strong>1.</strong> <strong>volatile****与synchronized的区别，底层实现</strong></p>
+<p>l 首先两者都是用来确保数据的一致性的，volatile它能够使变量在值发生改变时尽快让其他线程知道，为什么要这么做呢？编译器为了加快程序运行速度，对一些变量的写操作会现在寄存器或者是cpu缓存上进行，最后才写入内存，这个过程，变量的新值对其他线程是不可见的，而volatile的作用就是使它修饰的变量的读写操作都必须在内存中进行</p>
+<p>区别：</p>
+<p>l Volatile本质是告诉jvm当前变量在寄存器中的值是不安全的需要从内存中读取，sychronized则是锁定当前变量，只有当前线程可以访问到该变量其他线程被阻塞</p>
+<p>l Volatile只能作用于变量，synchronized则是可以使用在变量和方法上</p>
+<p>l Volatile仅能实现变量的修改可见性,但不具备原子特性,而synchronized则可以保证变量的修改可见性和原子性</p>
+<p>l volatile不会造成线程的阻塞,而synchronized可能会造成线程的阻塞</p>
+<p>l volatile标记的变量不会被编译器优化,而synchronized标记的变量可以被编译器优化</p>
+<p>注意事项：</p>
+<p>l 在使用volatile关键字时要慎重，并不是只要简单类型变量使用volatile修饰，对这个变量的所有操作都是原来操作，当变量的值由自身的上一个决定时，如n=n+1、n++ 等，volatile关键字将失效，只有当变量的值和自身上一个值无关时对该变量的操作才是原子级别的，如n = m + 1，这个就是原级别的。所以在使用volatile关键时一定要谨慎，如果自己没有把握，可以使用synchronized来代替volatile</p>
+<h4 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h4><h5 id="java反射的作用是什么？"><a href="#java反射的作用是什么？" class="headerlink" title="java反射的作用是什么？"></a>java反射的作用是什么？</h5><p>反射机制是在运行时，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意个对象，都能够调用它的任意一个方法。在java中，只要给定类的名字，就可以通过反射机制来获得类的所有信息。这种动态获取的信息以及动态调用对象的方法的功能称为<a target="_blank" rel="noopener" href="https://www.wkcto.com/">java语言</a>的反射机制。</p>
+<h5 id="Java反射创建对象效率高还是通过new创建对象的效率高？"><a href="#Java反射创建对象效率高还是通过new创建对象的效率高？" class="headerlink" title="Java反射创建对象效率高还是通过new创建对象的效率高？"></a>Java反射创建对象效率高还是通过new创建对象的效率高？</h5><p>通过new创建对象的效率比较高。通过反射时，先找查找类资源，使用类加载器创建，过程比较繁琐，所以效率较低。</p>
+<h5 id="反射的实现方式都有什么？"><a href="#反射的实现方式都有什么？" class="headerlink" title="反射的实现方式都有什么？"></a>反射的实现方式都有什么？</h5><p>获取Class对象，有4种方法：</p>
+<ul>
+<li>Class.forName(“类的路径”)；</li>
+<li>类名.class；</li>
+<li>对象名.getClass()；</li>
+<li>基本类型的包装类，可以调用包装类的Type属性来获得该包装类的Class对象。</li>
+</ul>
+<h5 id="反射机制的优缺点"><a href="#反射机制的优缺点" class="headerlink" title="反射机制的优缺点"></a>反射机制的优缺点</h5><p>优点:</p>
+<ol>
+<li>能够运行时动态获取类的实例，提高灵活性</li>
+<li>与动态编译结合Class.forName(‘com.mysql.jdbc.Driver.class’);//加载<a target="_blank" rel="noopener" href="https://www.wkcto.com/courses/mysql.html">MySQL</a>的驱动类</li>
+</ol>
+<p>缺点:<br>使用反射性能较低，需要解析字节码，将内存中的对象进行解析。<br>其解决方案是：通过setAccessible(true)关闭JDK的安全检查来提升反射速度；多次创建一个类的实例时，有缓存会快很多；ReflflectASM工具类，通过字节码生成的方式加快反射速度。</p>
+<h5 id="反射使用步骤（获取Class对象、调用对象方法）"><a href="#反射使用步骤（获取Class对象、调用对象方法）" class="headerlink" title="反射使用步骤（获取Class对象、调用对象方法）"></a>反射使用步骤（获取Class对象、调用对象方法）</h5><ol>
+<li>获取想要操作的类的Class对象，他是反射的核心，通过Class对象我们可以任意调用类的方法。</li>
+<li>调用 Class 类中的方法，既就是反射的使用阶段。</li>
+<li>使用反射 API 来操作这些信息。</li>
+</ol>
+<h5 id="Java反射机制的作用有什么？"><a href="#Java反射机制的作用有什么？" class="headerlink" title="Java反射机制的作用有什么？"></a>Java反射机制的作用有什么？</h5><ul>
+<li>在运行时判断任意一个对象所属的类</li>
+<li>在运行时构造任意一个类的对象</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法</li>
+<li>在运行时调用任意一个对象的方法。</li>
+<li></li>
+</ul>
+<p><strong>1.</strong> <strong>反射，泛型项目中有没有使用</strong></p>
+<p>l 反射：spring框架，底层使用大量反射，但是我们直接使用IOC注入对象，所以并不直接使用。除非特殊情况下，自己封装一些工具类的时候使用到（最后一句可以不说）。</p>
+<p>l 泛型：底层肯定也是大量使用的，写的工具类，返回给前端对象中，对外的参数List Map等可以使用泛型。</p>
+<h5 id="常见的设计模式"><a href="#常见的设计模式" class="headerlink" title="常见的设计模式"></a>常见的设计模式</h5><ul>
+<li><strong>单例模式</strong><br>保证一个类仅有一个实例，并提供一个访问它的全局访问点</li>
+<li><strong>工厂模式</strong><br>为创建对象提供过渡接口，以便将创建对象的具体过程屏蔽隔离起来，达到提高灵活性的目的</li>
+<li><strong>建造(Builder)模式</strong><br>是一种对象构建的设计模式，它可以将复杂对象的建造过程抽象出来（抽象类别），使这个抽象过程的不同实现方法可以构造出不同表现（属性）的对象</li>
+<li><strong>观察者模式</strong><br>观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己。观察者模式又叫发布-订阅(Publish/Subscribe)模式</li>
+<li><strong>适配器(Adapter)模式</strong><br>适配器模式把一个类的接口变换成客户端所期待的另一种接口，从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作</li>
+<li><strong>代理模式</strong><br>为其他对象提供一种代理以控制对这个对象的访问。也可以说，在出发点到目的地之间有一道中间层，意为代理</li>
+<li><strong>装饰模式</strong><br>装饰模式(Decorator)，动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更为灵活</li>
+</ul>
+<h4 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h4><h5 id="Java中有几种类型的流？"><a href="#Java中有几种类型的流？" class="headerlink" title="Java中有几种类型的流？"></a>Java中有几种类型的流？</h5><ol>
+<li>字符流和字节流。</li>
+<li>字节流继承inputStream和OutputStream</li>
+<li>字符流继承自InputSteamReader和OutputStreamWriter</li>
+</ol>
+<h5 id="字符流和字节流有什么区别？"><a href="#字符流和字节流有什么区别？" class="headerlink" title="字符流和字节流有什么区别？"></a>字符流和字节流有什么区别？</h5><p>字符流和字节流的使用非常相似，但是实际上字节流的操作不会经过缓冲区（内存）而是直接操作文本本身的，而字符流的操作会先经过缓冲区（内存）然后通过缓冲区再操作文件</p>
+<h5 id="NIO与IO的区别"><a href="#NIO与IO的区别" class="headerlink" title="NIO与IO的区别"></a>NIO与IO的区别</h5><p> NIO即New IO，这个库是在JDK1.4中才引入的。NIO和IO有相同的作用和目的，但实现方式不同，NIO主要用到的是块，所以NIO的效率要比IO高很多。在Java API中提供了两套NIO，一套是针对标准输入输出NIO，另一套就是网络编程NIO。</p>
+<p>NIO是为了弥补IO操作的不足而诞生的，NIO的一些新特性有：非阻塞I/O，选择器，缓冲以及管道。管道（Channel），缓冲（Buffer） ，选择器（ Selector）是其主要特征。</p>
+<p><strong>1、面向流与面向缓冲</strong><br>  Java IO和NIO之间第一个最大的区别是，IO是面向流的，NIO是面向缓冲区的。 Java IO面向流意味着每次从流中读一个或多个字节，直至读取所有字节，它们没有被缓存在任何地方。此外，它不能前后移动流中的数据。如果需要前后移动从流中读取的数据，需要先将它缓存到一个缓冲区。Java NIO的缓冲导向方法略有不同。数据读取到一个它稍后处理的缓冲区，需要时可在缓冲区中前后移动。这就增加了处理过程中的灵活性。但是，还需要检查是否该缓冲区中包含所有您需要处理的数据。而且，需确保当更多的数据读入缓冲区时，不要覆盖缓冲区里尚未处理的数据。</p>
+<p><strong>2、阻塞与非阻塞IO</strong><br>  Java IO的各种流是阻塞的。这意味着，当一个线程调用read() 或 write() 时，该线程被阻塞，直到有一些数据被读取，或数据完全写入。该线程在此期间不能再干任何事情了。Java NIO的非阻塞模式，使一个线程从某通道发送请求读取数据，但是它仅能得到目前可用的数据，如果目前没有数据可用时，就什么都不会获取，而不是保持线程阻塞，所以直至数据变的可以读取之前，该线程可以继续做其他的事情。非阻塞写也是如此。一个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情。线程通常将非阻塞IO的空闲时间用于在其它通道上执行IO操作，所以一个单独的线程现在可以管理多个输入和输出通道（channel）。</p>
+<p><strong>3、选择器（Selectors）</strong><br>  Java NIO的选择器允许一个单独的线程来监视多个输入通道，你可以注册多个通道使用一个选择器，然后使用一个单独的线程来“选择”通道：这些通道里已经有可以处理的输入，或者选择已准备写入的通道。这种选择机制，使得一个单独的线程很容易来管理多个通道。</p>
+<h4 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h4><h5 id="什么是JVM？"><a href="#什么是JVM？" class="headerlink" title="什么是JVM？"></a>什么是JVM？</h5><p>JVM是Java Virtual Machine（Java虚拟机）的缩写，JVM是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。<br>引入Java语言虚拟机后，Java语言在不同平台上运行时不需要重新编译。Java语言使用Java虚拟机屏蔽了与具体平台相关的信息，使得Java语言编译程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。</p>
+<h5 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h5><p><strong>程序计数器：</strong>当前线程所执行的字节码的行号指示器，用于记录正在执行的虚拟机字节指令地址，线程私有。<br><strong>Java虚拟栈：</strong>存放基本数据类型、对象的引用、方法出口等，线程私有。<br><strong>Native方法栈：</strong>和虚拟栈相似，只不过它服务于Native方法，线程私有。<br><strong>Java堆：</strong>java内存最大的一块，所有对象实例、数组都存放在java堆，GC回收的地方，线程共享。<br><strong>方法区：</strong>存放已被加载的类信息、常量、静态变量、即时编译器编译后的代码数据等。（即永久带），回收目标主要是常量池的回收和类型的卸载，各线程共享</p>
+<p><img src="C:/Users/MashiroShiina/AppData/Roaming/Typora/draftsRecover/jvm.png" srcset="/img/loading.gif" lazyload alt="jvm"></p>
+<h5 id="java垃圾回收机制"><a href="#java垃圾回收机制" class="headerlink" title="java垃圾回收机制"></a>java垃圾回收机制</h5><p>在java中，程序员是不需要显示的去释放一个对象的内存的，而是由虚拟机自行执行。在JVM中，有一个垃圾回收线程，它是低优先级的，在正常情况下是不会执行的，只有在虚拟机空闲或者当前堆内存不足时，才会触发执行，扫面那些没有被任何引用的对象，并将它们添加到要回收的集合中，进行回收。</p>
+<p><strong>1.</strong> <strong>JAVA****中垃圾回收机制</strong></p>
+<p>l 什么样的对象会被当做垃圾回收</p>
+<p>当一个对象的引用(地址)没有变量去记录的时候,该对象就会成为垃圾对象,并在垃圾回收器空闲的时候对其进行清扫.</p>
+<p>l 如何检验对象是否被回收</p>
+<p>可以重写Object类中的finalize方法</p>
+<p>这个方法在垃圾回收器执行的时候,被回收器自动调用执行的.</p>
+<p>l 怎样通知垃圾回收器回收对象</p>
+<p>可以调用system类的静态方法gc().通知垃圾回收器去清理垃圾.</p>
+<p><strong>回收策略:</strong></p>
+<ul>
+<li>对象优先在堆的Eden区分配。</li>
+<li>大对象直接进入老年代.</li>
+<li>长期存活的对象将直接进入老年代.<br>当Eden区没有足够的空间进行分配时，虚拟机会执行一次Minor GC.Minor Gc通常发生在新生代的Eden区，在这个区的对象生存期短，往往发生Gc的频率较高，回收速度比较快;Full Gc/Major GC 发生在老年代，一般情况下，触发老年代GC的时候不会触发Minor GC,但是通过配置，可以在Full GC之前进行一次Minor GC这样可以加快老年代的回收速度。</li>
+</ul>
+<h5 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h5><p>**简述:**虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验，解析和初始化，最终形成可以被虚拟机直接使用的java类型</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs markdown">java类加载需要经历一下7个过程：<br>加载<br>加载时类加载的第一个过程，在这个阶段，将完成一下三件事情：<br><span class="hljs-bullet">1.</span> 通过一个类的全限定名获取该类的二进制流。<br><span class="hljs-bullet">2.</span> 将该二进制流中的静态存储结构转化为方法去运行时数据结构。 <br><span class="hljs-bullet">3.</span> 在内存中生成该类的Class对象，作为该类的数据访问入口。<br><br>验证<br>验证的目的是为了确保Class文件的字节流中的信息不回危害到虚拟机.在该阶段主要完成以下四钟验证:<br><span class="hljs-bullet">1.</span> 文件格式验证：验证字节流是否符合Class文件的规范，如主次版本号是否在当前虚拟机范围内，常量池中的常量是否有不被支持的类型.<br><span class="hljs-bullet">2.</span> 元数据验证:对字节码描述的信息进行语义分析，如这个类是否有父类，是否集成了不被继承的类等。<br><span class="hljs-bullet">3.</span> 字节码验证：是整个验证过程中最复杂的一个阶段，通过验证数据流和控制流的分析，确定程序语义是否正确，主要针对<br><span class="hljs-bullet">4.</span> 方法体的验证。如：方法中的类型转换是否正确，跳转指令是否正确等。<br>   符号引用验证：这个动作在后面的解析过程中发生，主要是为了确保解析动作能正确执行。<br><br>准备:<br>准备阶段是为类的静态变量分配内存并将其初始化为默认值，这些内存都将在方法区中进行分配。准备阶段不分配类中的实例变量的内存，实例变量将会在对象实例化时随着对象一起分配在Java堆中。<br></code></pre></td></tr></table></figure>
+
+<h5 id="类加载器双亲委派模型机制"><a href="#类加载器双亲委派模型机制" class="headerlink" title="类加载器双亲委派模型机制"></a>类加载器双亲委派模型机制</h5><p><strong>类加载器</strong> 就是根据指定全限定名称将class文件加载到JVM内存，转为Class对象。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">主要有一下四种类加载器:<br><br><span class="hljs-number">1</span>. 启动类加载器(<span class="hljs-keyword">Bootstrap </span>ClassLoader)用来加载<span class="hljs-keyword">java核心类库，无法被java程序直接引用。</span><br><span class="hljs-keyword"></span><span class="hljs-number">2</span>. 扩展类加载器(<span class="hljs-keyword">extensions </span>class loader):它用来加载 <span class="hljs-keyword">Java </span>的扩展库。<span class="hljs-keyword">Java </span>虚拟机的实现会提供一个扩展库目录。该类加载器在此目录里面查找并加载 <span class="hljs-keyword">Java </span>类。<br><span class="hljs-number">3</span>. 系统类加载器（system class loader）：它根据 <span class="hljs-keyword">Java </span>应用的类路径（CLASSPATH）来加载 <span class="hljs-keyword">Java </span>类。一般来说，<span class="hljs-keyword">Java </span>应用的类都是由它来完成加载的。可以通过 ClassLoader.getSystemClassLoader()来获取它。<br><span class="hljs-number">4</span>. 用户自定义类加载器，通过继承 <span class="hljs-keyword">java.lang.ClassLoader类的方式实现。</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>双亲委派模型工作过程是</strong></p>
+<p>如果一个类加载器收到类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器完成。每个类加载器都是如此，只有当父加载器在自己的搜索范围内找不到指定的类时（即ClassNotFoundException），子加载器才会尝试自己去加载。</p>
+<h5 id="如和判断一个对象是否存活-或者GC对象的判定方法"><a href="#如和判断一个对象是否存活-或者GC对象的判定方法" class="headerlink" title="如和判断一个对象是否存活?(或者GC对象的判定方法)"></a>如和判断一个对象是否存活?(或者GC对象的判定方法)</h5><p>判断一个对象是否存活有两种方法:</p>
+<ol>
+<li><p><strong>引用计数法</strong><br>所谓引用计数法就是给每一个对象设置一个引用计数器，每当有一个地方引用这个对象时，就将计数器加一，引用失效时，计数器就减一。当一个对象的引用计数器为零时，说明此对象没有被引用，也就是“死对象”,将会被垃圾回收.<br>引用计数法有一个缺陷就是无法解决循环引用问题，也就是说当对象A引用对象B，对象B又引用者对象A，那么此时A,B对象的引用计数器都不为零，也就造成无法完成垃圾回收，所以主流的虚拟机都没有采用这种算法。</p>
+</li>
+<li><p><strong>可达性算法(引用链法)</strong><br>该算法的思想是：从一个被称为GC Roots的对象开始向下搜索，如果一个对象到GC Roots没有任何引用链相连时，则说明此对象不可用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs css">在java中可以作为GC Roots的对象有以下几种:<br>虚拟机栈中引用的对象<br>方法区类静态属性引用的对象<br>方法区常量池引用的对象<br>本地方法栈JNI引用的对象<br>虽然这些算法可以判定一个对象是否能被回收，但是当满足上述条件时，一个对象比不一定会被回收。当一个对象不可达GC Root时，这个对象并 <br>不会立马被回收，而是出于一个死缓的阶段，若要被真正的回收需要经历两次标记<br>如果对象在可达性分析中没有与GC Root的引用链，那么此时就会被第一次标记并且进行一次筛选，筛选的条件是是否有必要执行<span class="hljs-built_in">finalize</span>()方法。当对象没有覆盖<span class="hljs-built_in">finalize</span>()方法或者已被虚拟机调用过，那么就认为是没必要的。<br>如果该对象有必要执行<span class="hljs-built_in">finalize</span>()方法，那么这个对象将会放在一个称为F-Queue的对队列中，虚拟机会触发一个<span class="hljs-built_in">Finalize</span>()线程去执行，此线程是低优先级的，并且虚拟机不会承诺一直等待它运行完，这是因为如果<span class="hljs-built_in">finalize</span>()执行缓慢或者发生了死锁，那么就会造成F-Queue队列一直等待，造成了内存回收系统的崩溃。GC对处于F-Queue中的对象进行第二次被标记，这时，该对象将被移除”即将回收”集合，等待回收。<br></code></pre></td></tr></table></figure>
+
+<h5 id="内存溢出"><a href="#内存溢出" class="headerlink" title="内存溢出"></a>内存溢出</h5><p><strong>内存溢出是什么？</strong></p>
+<p>当程序需要申请内存的时候，由于没有足够的内存，此时就会抛出OutOfMemoryError，这就是内存溢出<br>jvm中除了<strong>程序计数器</strong>，其他的区域都有可能会发生内存溢出<br><strong>内存溢出和内存泄漏有什么区别？</strong><br>内存泄漏是由于使用不当，把一部分内存“丢掉了”，导致这部分内存不可用。<br>当在堆中创建了对象，后来没有使用这个对象了，又没有把整个对象的相关引用设为null。此时垃圾收集器会认为这个对象是需要的，就不会清理这部分内存。这就会导致这部分内存不可用。<br>所以内存泄漏会导致可用的内存减少，进而会导致内存溢出。</p>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs llvm">堆溢出<br>堆是存放对象的地方，那么只要在堆中疯狂的创建对象，那么堆就会发生内存溢出。<br>栈溢出<br>调用方法的时候，会在栈中入栈一个栈帧，如果当前栈的容量不足，就会发生栈溢出StackOverFlowError<br>那么只要疯狂的调用方法，并且有意的不让栈帧出栈就可以导致栈溢出了。<br>运行时常量池溢出<br>这里储存的是一些常量、字面量。如果运行时常量池内存不足，就会发生内存溢出。从jdk<span class="hljs-number">1.7</span>开始，运行时常量池移动到了堆中，所以如果堆的内存不足，也会导致运行时常量池内存溢出。<br>方法区溢出<br>方法区是存放类的信息，而且很难被<span class="hljs-keyword">gc</span>，只要加载了大量类，就有可能引起方法区溢出<br>cglib创建大量的代理类会导致方法区溢出<br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p><strong>1.</strong> <strong>数据库的三范式是什么？</strong></p>
+<p>l 第一范式：强调的是列的原子性，即数据库表的每一列都是不可分割的原子数据项。</p>
+<p>l 第二范式：要求实体的属性完全依赖于主关键字。所谓完全依赖是指不能存在仅依赖主关键字一部分的属性。</p>
+<p>l 第三范式：任何非主属性不依赖于其它非主属性。</p>
+<h5 id="存储引擎-MyISAM-和-InnoDB区别"><a href="#存储引擎-MyISAM-和-InnoDB区别" class="headerlink" title="存储引擎 MyISAM 和 InnoDB区别"></a>存储引擎 MyISAM 和 InnoDB区别</h5><ol>
+<li>InnoDB支持事务，MyISAM不支持。</li>
+<li>MyISAM适合查询以及插入为主的应用，InnoDB适合频繁修改以及涉及到安全性较高的应用。</li>
+<li>InnoDB支持外键，MyISAM不支持。</li>
+<li>从MySQL5.5以后，InnoDB是默认引擎。</li>
+<li>MyISAM支持全文类型索引，而InnoDB不支持全文索引。</li>
+<li>InnoDB中不保存表的总行数，select count(<em>) from table时，InnoDB需要扫描整个表计算有多少行，但MyISAM只需简单读出保存好的总行数即可。注：当count(</em>)语句包含where条件时MyISAM也需扫描整个表。</li>
+<li>对于自增长的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中可以和其他字段一起建立联合索引。</li>
+<li>清空整个表时，InnoDB是一行一行的删除，效率非常慢。MyISAM则会重建表。MyisAM使用delete语句删除后并不会立刻清理磁盘空间，需要定时清理，命令：<code>OPTIMIZE table dept;</code></li>
+<li>InnoDB支持行锁（某些情况下还是锁整表，如 update table set a=1 where user like ‘%lee%’）</li>
+<li>Myisam创建表生成三个文件：<code>.frm </code>数据表结构 、 <code>.myd </code>数据文件 、 <code>.myi </code>索引文件，Innodb只生成一个 .frm文件，数据存放在ibdata1.log</li>
+<li>现在一般都选用InnoDB，主要是MyISAM的全表锁，读写串行问题，并发效率锁表，效率低，MyISAM对于读写密集型应用一般是不会去选用的。</li>
+<li>应用场景：</li>
+</ol>
+<ul>
+<li>MyISAM不支持事务处理等高级功能，但它提供高速存储和检索，以及全文搜索能力。如果应用中需要执行大量的SELECT查询，那么MyISAM是更好的选择。</li>
+<li>InnoDB用于需要事务处理的应用程序，包括ACID事务支持。如果应用中需要执行大量的INSERT或UPDATE操作，则应该使用InnoDB，这样可以提高多用户并发操作的性能。</li>
+</ul>
+<h5 id="什么是事务-事务的四大特性是什么"><a href="#什么是事务-事务的四大特性是什么" class="headerlink" title="什么是事务?事务的四大特性是什么?"></a>什么是事务?事务的四大特性是什么?</h5><p><strong>事务就是为了保证一组数据库操作，要么全部成功，要么全部失败</strong></p>
+<ul>
+<li>原子性：不可分割的操作单元，事务中所有操作，要么全部成功；要么撤回到执行事务之前的状态</li>
+<li>一致性：如果在执行事务之前数据库是一致的，那么在执行事务之后数据库也还是一致的；</li>
+<li>隔离性：事务操作之间彼此独立和透明互不影响。事务独立运行。这通常使用锁来实现。一个事务处理后的结果，影响了其他事务，那么其他事务会撤回。事务的100%隔离，需要牺牲速度。</li>
+<li>持久性：事务一旦提交，其结果就是永久的。即便发生系统故障，也能恢复。</li>
+</ul>
+<h5 id="事务隔离级别有哪些-innoDB默认隔离级别"><a href="#事务隔离级别有哪些-innoDB默认隔离级别" class="headerlink" title="事务隔离级别有哪些,innoDB默认隔离级别"></a>事务隔离级别有哪些,innoDB默认隔离级别</h5><ul>
+<li>未提交读(Read Uncommitted)：允许脏读，其他事务只要修改了数据，即使未提交，本事务也能看到修改后的数据值。也就是可能读取到其他会话中未提交事务修改的数据</li>
+<li>提交读(Read Committed)：只能读取到已经提交的数据。Oracle等多数数据库默认都是该级别 (不重复读)。</li>
+<li>可重复读(Repeated Read)：可重复读。无论其他事务是否修改并提交了数据，在这个事务中看到的数据值始终不受其他事务影响。</li>
+<li>串行读(Serializable)：完全串行化的读，每次读都需要获得表级共享锁，读写相互都会阻塞</li>
+</ul>
+<p><strong>MySQL数据库(InnoDB引擎)默认使用可重复读（ Repeatable read)</strong></p>
+<h5 id="delete、drop、truncate区别"><a href="#delete、drop、truncate区别" class="headerlink" title="delete、drop、truncate区别"></a>delete、drop、truncate区别</h5><ul>
+<li>truncate 和 delete只删除数据，不删除表结构 ,drop删除表结构，并且释放所占的空间。</li>
+<li>删除数据的速度，drop&gt; truncate &gt; delete</li>
+<li>delete属于DML语言，需要事务管理，commit之后才能生效。drop和truncate属于DDL语言，操作立刻生效，不可回滚。</li>
+<li><strong>使用场合：</strong><ul>
+<li>当你不再需要该表时， 用 drop;</li>
+<li>当你仍要保留该表，但要删除所有记录时， 用 truncate;</li>
+<li>当你要删除部分记录时（always with a where clause), 用 delete.</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意：</strong> 对于<strong>有主外键关系的表</strong>，不能使用truncate而应该<strong>使用不带where子句的delete语句</strong>，由于truncate不记录在日志中，不能够激活触发器</p>
+<h5 id="数据库并发操作会引发的问题"><a href="#数据库并发操作会引发的问题" class="headerlink" title="数据库并发操作会引发的问题?"></a>数据库并发操作会引发的问题?</h5><p><strong>脏读（dirty read）:</strong><br>A事务读取B事务尚未提交的更改数据，并在这个数据基础上操作。如果B事务回滚，那么A事务读到的数据根本不是合法的，称为脏读。在oracle中，由于有version控制，不会出现脏读。数据库事务隔离级别高于 read commited即可<br><strong>不可重复读（unrepeatable read）:</strong><br>A事务读取了B事务已经提交的更改（或删除）数据。比如A事务第一次读取数据，然后B事务更改该数据并提交，A事务再次读取数据，两次读取的数据不一样。将数据库事务隔离级别设为repeatable read即可<br><strong>幻读（phantom read）:</strong><br>A事务读取了B事务已经提交的新增数据。注意和不可重复读的区别，这里是新增，不可重复读是更改（或删除）。这两种情况对策是不一样的，对于不可重复读，只需要采取行级锁防止该记录数据被更改或删除，然而对于幻读必须加表级锁，防止在这个表中新增一条数据<br>当然，也可以将数据库事务隔离级别设为serializable，但一般不这样做，因为该策略是完全阻塞的，将对数据库的访问完全序列化，并发性能最差。<br><strong>丢失更新</strong><br>第一类丢失更新：A事务提交时，把已提交的B事务的数据覆盖掉。<br>第二类丢失更新：A事务回滚时，把已提交的B事务的数据覆盖掉。</p>
+<p><strong>1.</strong> <strong>高并发下，如何做到安全的修改同一行数据。</strong></p>
+<p>使用悲观锁 悲观锁本质是当前只有一个线程执行操作，结束了唤醒其他线程进行处理。也可以缓存队列中锁定主键。</p>
+<p><strong>2.</strong> <strong>数据库会死锁吗，举一个死锁的例子</strong></p>
+<p>产生死锁的原因主要是：</p>
+<p>（1）系统资源不足。<br>   （2） 进程运行推进的顺序不合适。<br>   （3）资源分配不当等。</p>
+<p>如果系统资源充足，进程的资源请求都能够得到满足，死锁出现的可能性就很低，否则就会因争夺有限的资源而陷入死锁。其次，进程运行推进顺序与速度不同，也可能产生死锁。</p>
+<p>产生死锁的四个必要条件：</p>
+<p>（1） 互斥条件：一个资源每次只能被一个进程使用。<br>   （2） 请求与保持条件：一个进程因请求资源而阻塞时，对已获得的资源保持不放。<br>   （3） 不剥夺条件:进程已获得的资源，在末使用完之前，不能强行剥夺。<br>   （4） 循环等待条件:若干进程之间形成一种头尾相接的循环等待资源关系。</p>
+<p>这四个条件是死锁的必要条件，只要系统发生死锁，这些条件必然成立，而只要上述条件之一不满足，就不会发生死锁。</p>
+<p><strong>1.</strong> <strong>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 MySQL 数据库，又插入了一条数据，此时 id 是几？</strong></p>
+<p>l 表类型如果是 MyISAM ，那 id 就是 8。</p>
+<p>表类型如果是 InnoDB，那 id 就是 6。<br> InnoDB 表只会把自增主键的最大 id 记录在内存中，所以重启之后会导致最大 id 丢失</p>
+<p><strong>1.</strong> <strong>Sql****优化</strong></p>
+<p>l 通过慢查询日志去寻找，哪些sql执行效率低</p>
+<p>l 使用explain分析低效率的sql执行计划</p>
+<p>l 针对低效率的sql执行计划分析</p>
+<p>没有索引</p>
+<p>索引失效</p>
+<p>数据量太大</p>
+<p>没有索引：</p>
+<p>l 针对查询的列创建索引，提高查询效率，但是索引太多，mysql也会出现选择困难，所以建立索引要有效，无效的索引需要删除。</p>
+<p>索引失效：</p>
+<p>l 尽量选择较小的列</p>
+<p>l 将where中用的比较频繁的字段建立索引</p>
+<p>l select子句中避免使用‘*’</p>
+<p>l 避免在索引列上使用计算，not，in和&lt;&gt;等操作</p>
+<p>l 当只需要一行数据的时候使用limit 1</p>
+<p>l 保证表单数据不超过200w，适时分割表</p>
+<p>l 针对查询较慢的语句，可以使用explain来分析该语句具体的执行情况</p>
+<p>l 避免查询时判断null，否则可能会导致全表扫描，无法使用索引;</p>
+<p>l 避免like查询，否则可能导致全表扫描，可以考虑使用全文索引</p>
+<p>l 能用union all的时候就不用union，union过滤重复数据要耗费更多的CPU资源</p>
+<p>数据量太大：</p>
+<p>l 分页查询优化</p>
+<p>l  在索引上完成排序分页操作，最后根据主键关联回原表查询所需要的其他列内容。</p>
+<p>l  Select * from table t where t.id in（select id from table order by id limit 100000，10） ;</p>
+<p>l  对于主键自增的表，可以把limit查询缓存某个位置的查询</p>
+<p>l  Select * from table where id &gt; 100000 limit 10;</p>
+<h5 id="varchar和char的区别"><a href="#varchar和char的区别" class="headerlink" title="varchar和char的区别"></a>varchar和char的区别</h5><ul>
+<li>CHAR和VARCHAR类型在存储和检索方面有所不同</li>
+<li>CHAR列长度固定为创建表时声明的长度，长度值范围是1到255</li>
+<li>当CHAR值被存储时，它们被用空格填充到特定长度，检索CHAR值时需删除尾随空格。<br>在检索效率上来讲,char &gt; varchar,因此在使用中,如果确定某个字段的值的长度,可以使用char,否则应该尽量使用varchar.例如<strong>存储用户MD5加密后的密码</strong>,则应该使用char,可以节省空间且提高检索效率</li>
+</ul>
+<h5 id="左连接-，右连接，内连接和全外连接的4者区别"><a href="#左连接-，右连接，内连接和全外连接的4者区别" class="headerlink" title="左连接 ，右连接，内连接和全外连接的4者区别"></a>左连接 ，右连接，内连接和全外连接的4者区别</h5><p>left join （左连接）：返回包括左表中的所有记录和右表中连接字段相等的记录。<br>right join （右连接）：返回包括右表中的所有记录和左表中连接字段相等的记录。<br>inner join （等值连接或者叫内连接）：只返回两个表中连接字段相等的行。<br>full join （全外连接）：返回左右表中所有的记录和左右表中连接字段相等的记录。</p>
+<h5 id="MySQL-的行锁和表锁"><a href="#MySQL-的行锁和表锁" class="headerlink" title="MySQL 的行锁和表锁"></a>MySQL 的行锁和表锁</h5><p>MyISAM 只支持表锁，InnoDB 支持表锁和行锁，默认为行锁。<br><strong>表级锁：</strong>开销小，加锁快，不会出现死锁。锁定粒度大，发生锁冲突的概率最高，并发量最低。<br><strong>行级锁：</strong>开销大，加锁慢，会出现死锁。锁力度小，发生锁冲突的概率小，并发度最高。</p>
+<h5 id="乐观锁和悲观锁"><a href="#乐观锁和悲观锁" class="headerlink" title="乐观锁和悲观锁"></a>乐观锁和悲观锁</h5><p><strong>乐观锁：</strong>每次去拿数据的时候都认为别人不会修改，所以不会上锁，但是在提交更新的时候会判断一下在此期间别人有没有去更新这个数据。<br><strong>悲观锁：</strong>每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据就会阻止，直到这个锁被释放。<br>数据库的乐观锁需要自己实现，在表里面添加一个 version 字段，每次修改成功值加 1，这样每次修改的时候先对比一下，自己拥有的 version 和数据库现在的 version 是否一致，如果不一致就不修改，这样就实现了乐观锁。</p>
+<h5 id="索引是什么"><a href="#索引是什么" class="headerlink" title="索引是什么"></a>索引是什么</h5><p>相当于一本书的目录<br>默认检索方式为全表扫描,使用索引检索缩小了扫描范围<br>索引需要维护:当索引列发生dml操作时,索引也会变化</p>
+<h5 id="Mysql支持的索引类型"><a href="#Mysql支持的索引类型" class="headerlink" title="Mysql支持的索引类型"></a>Mysql支持的索引类型</h5><p>**普通索引(index):**数据可以重复，没有任何限制。<br>**唯一索引(unique ):**要求索引列的值必须唯一，但允许有空值；如果是组        合索引，那么列值的组合必须唯一。<br>**主键索引(primary key):**是一种特殊的唯一索引，一个表只能有一个主键，不允许有空值，一般是在创建表的同时创建主键索引。<br><strong>组合索引:</strong> 在多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个字段，索引才会被使用。<br>**全文索引(fulltext ):**是对于大表的文本域：char，varchar，text列才能创建全文索引，主要用于查找文本中的关键字，并不是直接与索引中的值进行比较。</p>
+<h5 id="什么情况需要添加索引"><a href="#什么情况需要添加索引" class="headerlink" title="什么情况需要添加索引"></a>什么情况需要添加索引</h5><p>数据量庞大,字段很少DML,经常作where条件<br>主键和唯一约束会自动添加索引</p>
+<h5 id="explain命令"><a href="#explain命令" class="headerlink" title="explain命令"></a>explain命令</h5><p>通过 <strong>explain 命令获取 select 语句的执行计划</strong>，通过 explain 我们可以知道以下信息：表的读取顺序，数据读取操作的类型，哪些索引可以使用，哪些索引实际使用了，表之间的引用，每张表有多少行被优化器查询等信息</p>
+<p><strong>主要关注</strong><br>type如果为all,代表全表扫描<br>key表示实际使用的索引<br>Extra:执行情况的描述和说明</p>
+<p><strong>expain出来的信息</strong></p>
+<ul>
+<li><p>**id:**SELECT识别符。这是SELECT的查询序列号<br>id相同时，执行顺序由上至下<br>如果是子查询，id的序号会递增，id值越大优先级越高，越先被执行<br>id如果相同，可以认为是一组，从上往下顺序执行；在所有组中，id值越大，优先级越高，越先执行select_type:表示查询的类型。</p>
+</li>
+<li><p>**select_type: **  表示查询中每个select子句的类型</p>
+</li>
+<li><p><strong>table:</strong> 输出结果集的表<br>显示这一步所访问数据库中表名称（显示这一行的数据是关于哪张表的），有时不是真实的表名字，可能是简称，例如上面的e，d，也可能是第几步执行的结果的简称</p>
+</li>
+<li><p>**type:**表示表的连接类型对表访问方式，表示MySQL在表中找到所需行的方式，又称“访问类型”。</p>
+<p>常用的类型有： <strong>ALL、index、range、 ref、eq_ref、const、system</strong>（从左到右，性能从差到好）</p>
+</li>
+<li><p>possible_keys:表示查询时，可能使用的索引</p>
+</li>
+<li><p>key:表示实际使用的索引</p>
+</li>
+<li><p>key_len:索引字段的长度</p>
+</li>
+<li><p>ref:列与索引的比较</p>
+</li>
+<li><p>rows:扫描出的行数(估算的行数)</p>
+</li>
+<li><p>Extra:执行情况的描述和说明</p>
+</li>
+</ul>
+<p><strong>总结：</strong><br>EXPLAIN不会告诉你关于触发器、存储过程的信息或用户自定义函数对查询的影响情况<br>EXPLAIN不考虑各种Cache<br>EXPLAIN不能显示MySQL在执行查询时所作的优化工作<br>部分统计信息是估算的，并非精确值<br>EXPALIN只能解释SELECT操作，其他操作要重写为SELECT后查看执行计划。</p>
+<h5 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h5><p><strong>为什么要sql优化?</strong><br>业务数据量的增多，SQL的执行效率对程序的运行效率的影响逐渐增大，执行时间过程,此时对SQL的优化就很有必要</p>
+<p><strong>SQL优化的一些方法</strong></p>
+<ol>
+<li>对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。      </li>
+<li>应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描，如：<br>select id from t where num is null<br>可以在num上设置默认值0，确保表中num列没有null值，然后这样查询：<br>select id from t where num=0    </li>
+<li>应尽量避免在 where 子句中使用!=或&lt;&gt;操作符，否则将引擎放弃使用索引而进行全表扫描。    </li>
+<li>应尽量避免在 where 子句中使用 or 来连接条件，否则将导致引擎放弃使用索引而进行全表扫描，如：<br>select id from t where num=10 or num=20<br>可以这样查询：<br>select id from t where num=10<br>union all<br>select id from t where num=20     </li>
+<li>in 和 not in 也要慎用，否则会导致全表扫描，如：<br>select id from t where num in(1,2,3)<br>对于连续的数值，能用 between 就不要用 in 了：<br>select id from t where num between 1 and 3      </li>
+<li>下面的查询也将导致全表扫描：<br>select id from t where name like ‘%abc%’      </li>
+<li>应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描。如：<br>select id from t where num/2=100<br>应改为:<br>select id from t where num=100*2      </li>
+<li>应尽量避免在where子句中对字段进行函数操作，这将导致引擎放弃使用索引而进行全表扫描。如：<br>select id from t where substring(name,1,3)=’abc’–name以abc开头的id<br>应改为:<br>select id from t where name like ‘abc%’     </li>
+<li>不要在 where 子句中的“=”左边进行函数、算术运算或其他表达式运算，否则系统将可能无法正确使用索引。    </li>
+<li>在使用索引字段作为条件时，如果该索引是复合索引，那么必须使用到该索引中的第一个字段作为条件时才能保证系统使用该索引，否则该索引将不会被使用，并且应尽可能的让字段顺序与索引顺序相一致。      </li>
+<li>不要写一些没有意义的查询，如需要生成一个空表结构：<br>select col1,col2 into #t from t where 1=0<br>这类代码不会返回任何结果集，但是会消耗系统资源的，应改成这样：<br>create table #t(…)      </li>
+<li>很多时候用 exists 代替 in 是一个好的选择：<br>select num from a where num in(select num from b)<br>用下面的语句替换：<br>select num from a where exists(select 1 from b where num=a.num)    </li>
+<li>并不是所有索引对查询都有效，SQL是根据表中数据来进行查询优化的，当索引列有大量数据重复时，SQL查询可能不会去利用索引，如一表中有字段sex，male、female几乎各一半，那么即使在sex上建了索引也对查询效率起不了作用。      </li>
+<li>索引并不是越多越好，索引固然可以提高相应的 select 的效率，但同时也降低了 insert 及 update 的效率，<br>因为 insert 或 update 时有可能会重建索引，所以怎样建索引需要慎重考虑，视具体情况而定。<br>一个表的索引数最好不要超过6个，若太多则应考虑一些不常使用到的列上建的索引是否有必要。     </li>
+<li>尽量使用数字型字段，若只含数值信息的字段尽量不要设计为字符型，这会降低查询和连接的性能，并会增加存储开销。<br>这是因为引擎在处理查询和连接时会逐个比较字符串中每一个字符，而对于数字型而言只需要比较一次就够了。    </li>
+<li>尽可能的使用 varchar 代替 char ，因为首先变长字段存储空间小，可以节省存储空间，<br>其次对于查询来说，在一个相对较小的字段内搜索效率显然要高些。    </li>
+<li>任何地方都不要使用 select * from t ，用具体的字段列表代替“*”，不要返回用不到的任何字段。    </li>
+<li>避免频繁创建和删除临时表，以减少系统表资源的消耗。</li>
+<li>临时表并不是不可使用，适当地使用它们可以使某些例程更有效，例如，当需要重复引用大型表或常用表中的某个数据集时。但是，对于一次性事件，最好使用导出表。        </li>
+<li>在新建临时表时，如果一次性插入数据量很大，那么可以使用 select into 代替 create table，避免造成大量 log ，<br>以提高速度；如果数据量不大，为了缓和系统表的资源，应先create table，然后insert。</li>
+<li>如果使用到了临时表，在存储过程的最后务必将所有的临时表显式删除，先 truncate table ，然后 drop table ，这样可以避免系统表的较长时间锁定。        </li>
+<li>尽量避免使用游标，因为游标的效率较差，如果游标操作的数据超过1万行，那么就应该考虑改写。        </li>
+<li>使用基于游标的方法或临时表方法之前，应先寻找基于集的解决方案来解决问题，基于集的方法通常更有效。</li>
+<li>与临时表一样，游标并不是不可使用。对小型数据集使用 FAST_FORWARD 游标通常要优于其他逐行处理方法，尤其是在必须引用几个表才能获得所需的数据时。<br>在结果集中包括“合计”的例程通常要比使用游标执行的速度快。如果开发时间允许，基于游标的方法和基于集的方法都可以尝试一下，看哪一种方法的效果更好。</li>
+<li>尽量避免大事务操作，提高系统并发能力。</li>
+<li>尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理。</li>
+</ol>
+<h3 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h3><h4 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h4><h5 id="什么是Spring"><a href="#什么是Spring" class="headerlink" title="什么是Spring?"></a>什么是Spring?</h5><p>Spring是一个开源轻量级的Java 开发框架.它是为了解决企业应用开发的复杂性而创建的。框架的主要优势之一就是其分层架构，分层架构允许使用者选择使用哪一个组件，同时为 J2EE 应用程序开发提供集成的框架。Spring使用基本的JavaBean来完成以前只可能由EJB完成的事情。然而，Spring的用途不仅限于服务器端的开发。从简单性、可测试性和松耦合的角度而言，任何Java应用都可以从Spring中受益。<strong>Spring的核心是控制反转（IoC）和面向切面（AOP）</strong>。简单来说，Spring是一个分层的JavaSE/EE full-stack(一站式) 轻量级开源框架。</p>
+<h5 id="Spring的优点"><a href="#Spring的优点" class="headerlink" title="Spring的优点"></a>Spring的优点</h5><p><strong>方便解耦，简化开发 （高内聚低耦合）</strong><br>Spring就是一个大工厂（容器），可以将所有对象创建和依赖关系维护，交给Spring管理<br>spring工厂是用于生成bean<br><strong>AOP编程的支持</strong><br>Spring提供面向切面编程，可以方便的实现对程序进行权限拦截、运行监控等功能<br><strong>声明式事务的支持</strong><br>只需要通过配置就可以完成对事务的管理，而无需手动编程<br><strong>方便程序的测试</strong><br>Spring对Junit4支持，可以通过注解方便的测试Spring程序<br><strong>方便集成各种优秀框架</strong><br>Spring不排斥各种优秀的开源框架，其内部提供了对各种优秀框架（如：Struts、Hibernate、MyBatis、Quartz等）的直接支持<br><strong>降低JavaEE API的使用难度</strong><br>Spring 对JavaEE开发中非常难用的一些API（JDBC、JavaMail、远程调用等），都提供了封装，使这些API应用难度大大降低</p>
+<h5 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h5><p>spring ioc指的是控制反转，IOC容器负责实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。交由Spring容器统一进行管理，从而实现松耦合,也利于功能的复用.DI依赖注入，和控制反转是同一个概念的不同角度的描述，即 应用程序在运行时依赖IoC容器来动态注入对象需要的外部依赖。<br>最直观的表达就是，以前创建对象的主动权和时机都是由自己把控的，IOC让对象的创建不用去new了，可以由spring自动生产，使用java的反射机制，根据配置文件在运行时动态的去创建对象以及管理对象，并调用对象的方法的</p>
+<p><strong>Spring的IOC有三种注入方式</strong> ：构造器注入、setter方法注入、根据注解注入</p>
+<h5 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h5><p>在软件业，AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。AOP是OOP（面向对象编程）的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。<br>AOP采取横向抽取机制，取代了传统纵向继承体系重复性代码<br><strong>经典应用：</strong>事务管理、性能监视、安全检查、缓存 、日志等<br>Spring AOP使用纯Java实现，不需要专门的编译过程和类加载器，在运行期通过代理方式向目标类织入增强代码<br>AspectJ是一个基于Java语言的AOP框架，Spring2.0开始，Spring AOP引入对Aspect的支持，AspectJ扩展了Java语言，提供了一个专门的编译器，在编译时提供横向代码的织入<br><strong>AOP实现原理</strong></p>
+<ul>
+<li>aop底层将采用代理机制进行实现。</li>
+<li>接口 + 实现类 ：spring采用 jdk 的动态代理Proxy。</li>
+<li>实现类：spring 采用 cglib字节码增强。</li>
+</ul>
+<p>分别为jdkProxy动态代理和CGLIB动态代理,jdk动态代理是需要被代理的类实现接口的,而CGLIB则不需要被代理的类实现接口</p>
+<p>JDK动态代理和cglib动态代理.JDK动态代理通过反射来接受被代理的类,但是被代理的类必须实现接口,核心是InvacationHandler和Proxy类.cglib动态代理的类一般是没有实现接口的类,cglib是一个代码生成的类库,可以在运行时动态生成某个类的子类.所以,cglib是通过继承的方式做的动态代理,因此如果某个类被标记为final,那么它是无法使用cglib做动态代理的.</p>
+<h5 id="Spring中bean的作用域："><a href="#Spring中bean的作用域：" class="headerlink" title="Spring中bean的作用域："></a>Spring中bean的作用域：</h5><ol>
+<li>singleton：默认作用域，单例bean，每个容器中只有一个bean的实例。</li>
+<li>prototype：为每一个bean请求创建一个实例。</li>
+<li>request：为每一个request请求创建一个实例，在请求完成以后，bean会失效并被垃圾回收器回收。</li>
+<li>session：与request范围类似，同一个session会话共享一个实例，不同会话使用不同的实例。</li>
+<li>global-session：全局作用域，所有会话共享一个实例。如果想要声明让所有会话共享的存储变量的话，那么这全局变量需要存储在global-session中。</li>
+</ol>
+<h5 id="Spring框架中的Bean是线程安全的么？如果线程不安全，那么如何处理？"><a href="#Spring框架中的Bean是线程安全的么？如果线程不安全，那么如何处理？" class="headerlink" title="Spring框架中的Bean是线程安全的么？如果线程不安全，那么如何处理？"></a>Spring框架中的Bean是线程安全的么？如果线程不安全，那么如何处理？</h5><p>Spring容器本身并没有提供Bean的线程安全策略，因此可以说Spring容器中的Bean本身不具备线程安全的特性，但是具体情况还是要结合Bean的作用域来讨论。</p>
+<ol>
+<li>对于prototype作用域的Bean，每次都创建一个新对象，也就是线程之间不存在Bean共享，因此不会有线程安全问题。</li>
+<li>对于singleton作用域的Bean，所有的线程都共享一个单例实例的Bean，因此是存在线程安全问题的。但是如果单例Bean是一个无状态Bean，也就是线程中的操作不会对Bean的成员执行查询以外的操作，那么这个单例Bean是线程安全的。比如Controller类、Service类和Dao等，这些Bean大多是无状态的，只关注于方法本身。</li>
+</ol>
+<blockquote>
+<p>有状态Bean(Stateful Bean) ：就是有实例变量的对象，可以保存数据，是非线程安全的。</p>
+<p>无状态Bean(Stateless Bean)：就是没有实例变量的对象，不能保存数据，是不变类，是线程安全的。</p>
+</blockquote>
+<p>对于有状态的bean（比如Model和View），就需要自行保证线程安全，最浅显的解决办法就是将有状态的bean的作用域由“singleton”改为“prototype”。</p>
+<p>也可以采用ThreadLocal解决线程安全问题，为每个线程提供一个独立的变量副本，不同线程只操作自己线程的副本变量。</p>
+<blockquote>
+<p>ThreadLocal和线程同步机制都是为了解决多线程中相同变量的访问冲突问题。同步机制采用了“时间换空间”的方式，仅提供一份变量，不同的线程在访问前需要获取锁，没获得锁的线程则需要排队。而ThreadLocal采用了“空间换时间”的方式。ThreadLocal会为每一个线程提供一个独立的变量副本，从而隔离了多个线程对数据的访问冲突。因为每一个线程都拥有自己的变量副本，从而也就没有必要对该变量进行同步了。</p>
+</blockquote>
+<h5 id="Spring框架实现实例化和依赖注入的方式"><a href="#Spring框架实现实例化和依赖注入的方式" class="headerlink" title="Spring框架实现实例化和依赖注入的方式"></a>Spring框架实现实例化和依赖注入的方式</h5><p> <strong>实例化:</strong><br>构造器实例化Bean<br>静态工厂方式实例化Bean<br>实例工厂方式实例化Bean</p>
+<p><strong>依赖注入:</strong><br>基于构造函数的注入<br>基于set方法的注入<br>基于自动装配的注入<br>基于注解的依赖注入</p>
+<h5 id="spring的循环依赖"><a href="#spring的循环依赖" class="headerlink" title="spring的循环依赖"></a>spring的循环依赖</h5><p>参考:<a target="_blank" rel="noopener" href="https://blog.csdn.net/a745233700/article/details/110914620">https://blog.csdn.net/a745233700/article/details/110914620</a></p>
+<h4 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h4><h5 id="springmvc执行流程"><a href="#springmvc执行流程" class="headerlink" title="springmvc执行流程"></a>springmvc执行流程</h5><ol>
+<li>用户发送请求至前端控制器DispatcherServlet</li>
+<li>DispatcherServlet收到请求调用HandlerMapping处理器映射器。</li>
+<li>处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet。</li>
+<li>DispatcherServlet通过HandlerAdapter处理器适配器调用处理器</li>
+<li>HandlerAdapter执行处理器(handler，也叫后端控制器)。</li>
+<li>Controller执行完成返回ModelAndView</li>
+<li>HandlerAdapter将handler执行结果ModelAndView返回给DispatcherServlet</li>
+<li>DispatcherServlet将ModelAndView传给ViewReslover视图解析器</li>
+<li>ViewReslover解析后返回具体View对象</li>
+<li>DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）。</li>
+<li>DispatcherServlet响应用户</li>
+</ol>
+<p><strong>1.</strong> <strong>springmvc****获取表单的几种方式</strong></p>
+<p>l 借助原始ServletAPI的HttpServletRequest对象.</p>
+<p>Controller的方法,</p>
+<p>添加HttpServletRequest类型入参,</p>
+<p>通过HttpServletRequest.getParameter()获取请求数据</p>
+<p>l 借助控制器方法的形参</p>
+<p>controller的方法,添加参数来接收表单的数据.</p>
+<p>接收的类型包括:</p>
+<p>一、基本类型或String</p>
+<p>二、实体类类型</p>
+<p>三、实体类关联对象</p>
+<p>l Controller方法,接收实体类类型参数,而表单提交的是json数据时,可以使用@RequestBody注解获取全部请求体,配合jackson开源组件可以实现转换成实体类.要求json数据的key必须和实体类属性保持一致.</p>
+<h5 id="Spring以及SpringMVC常用注解"><a href="#Spring以及SpringMVC常用注解" class="headerlink" title="Spring以及SpringMVC常用注解"></a>Spring以及SpringMVC常用注解</h5><p>@Component:用于标记在一个类上,表示当前类是spring的一个组件,是ioc的一个容器.他有三个衍生注解:@Controller、@Service、@Repository<br>@Controller：用于标记在一个类上,代表这个类是控制层组件.<br>@Service:用于标记在一个类上,代表这个类是业务层组件.<br>@Repository:用于标记在一个类上,代表这个类是数据访问层组件.<br>@RequestMapping:是一个用于处理请求地址映射的注解,可用于类或方法上.用于类上,表示类中所有响应请求的方法都是以该地址作为父路径<br>@RequestParam:用于将指定的请求参数赋给方法中的形参.<br>@PathVariable:可以获取URL中的动态参数.<br>@RequestBody:用于读取request请求的body部分数据.<br>@ResponseBody:用于将controller方法返回的对象,用流响应给客户端.<br>@RestController:@Controller+@ResponseBody,用于标记在一个类上.<br>@Transactional:写在类上用于指定当前类中的方法支持事务,写在方法上表示当前的方法支持事务</p>
+<h4 id="mybatis"><a href="#mybatis" class="headerlink" title="mybatis"></a>mybatis</h4><h5 id="什么是Mybatis？"><a href="#什么是Mybatis？" class="headerlink" title="什么是Mybatis？"></a>什么是Mybatis？</h5><p><strong>Mybatis是一个半ORM（对象关系映射）框架，它内部封装了JDBC，加载驱动、创建连接、创建statement等繁杂的过程，开发者开发时只需要关注如何编写SQL语句，可以严格控制sql执行性能，灵活度高,所以比较适合对性能的要求很高，或者需求变化较多的项目，如互联网项目。</strong><br>作为一个半ORM框架，MyBatis 可以使用 XML 或注解来配置和映射原生信息，将 POJO映射成数据库中的记录，避免了几乎所有的 JDBC 代码和手动设置参数以及获取结果集。<br>通过xml 文件或注解的方式将要执行的各种 statement 配置起来，并通过java对象和 statement中sql的动态参数进行映射生成最终执行的sql语句，最后由mybatis框架执行sql并将结果映射为java对象并返回。（从执行sql到返回result的过程）。</p>
+<h5 id="mybatis的优点缺点。"><a href="#mybatis的优点缺点。" class="headerlink" title="mybatis的优点缺点。"></a>mybatis的优点缺点。</h5><p><strong>优点：</strong><br>（1）基于SQL语句编程，相当灵活，不会对应用程序或者数据库的现有设计造成任何影响，SQL写在XML里，解除sql与程序代码的耦合，便于统一管理；提供XML标签，支持编写动态SQL语句，并可重用。<br>（2）与JDBC相比，减少了50%以上的代码量，消除了JDBC大量冗余的代码，不需要手动开关连接；<br>（3）很好的与各种数据库兼容（因为MyBatis使用JDBC来连接数据库，所以只要JDBC支持的数据库MyBatis都支持）。<br>（4）能够与Spring很好的集成；<br>（5）提供映射标签，支持对象与数据库的ORM字段关系映射；提供对象关系映射标签，支持对象关系组件维护。<br><strong>缺点：</strong><br>（1）SQL语句的编写工作量较大，尤其当字段多、关联表多时，对开发人员编写SQL语句的功底有一定要求。<br>（2）SQL语句依赖于数据库，导致数据库移植性差，不能随意更换数据库。<br><strong>MyBatis框架适用场合：</strong><br>（1）MyBatis专注于SQL本身，是一个足够灵活的DAO层解决方案。<br>（2）对性能的要求很高，或者需求变化较多的项目，如互联网项目，MyBatis将是不错的选择。</p>
+<p><strong>1.</strong> <strong>Mybatis****常用注解</strong></p>
+<p>@Insert ： 插入sql , 和xml insert sql语法完全一样</p>
+<p>@Select ： 查询sql, 和xml select sql语法完全一样</p>
+<p>@Update ： 更新sql, 和xml update sql语法完全一样</p>
+<p>@Delete ： 删除sql, 和xml delete sql语法完全一样</p>
+<p>@Param ： 当映射器方法需要多个参数时，指定参数的名字</p>
+<p>@Results ： 结果集合</p>
+<p>@Result ： 结果</p>
+<p>@One ：复杂类型的单独属性值映射</p>
+<p>@Many ：复杂类型的己合属性映射</p>
+<h5 id="和-的区别是什么？"><a href="#和-的区别是什么？" class="headerlink" title="#{}和${}的区别是什么？"></a>#{}和${}的区别是什么？</h5><p>#{}传参能防止sql注入.</p>
+<p>${}传参是字符串拼接.</p>
+<p>${}是字符串替换，#{}是预处理；<br>Mybatis在处理${}时，就是把${}直接替换成变量的值。<br>Mybatis在处理#{}时，会对sql语句进行预处理，将sql中的#{}替换为?号，调用PreparedStatement的set方法来赋值,带<strong>引号传入</strong>；使用#{}可以有效的防止SQL注入，提高系统安全性。</p>
+<h5 id="使用-MyBatis-的-mapper-接口调用时有哪些要求？"><a href="#使用-MyBatis-的-mapper-接口调用时有哪些要求？" class="headerlink" title="使用 MyBatis 的 mapper 接口调用时有哪些要求？"></a>使用 MyBatis 的 mapper 接口调用时有哪些要求？</h5><ul>
+<li>Mapper 接口方法名和 mapper.xml 中定义的每个 sql 的 id 相同</li>
+<li>Mapper 接口方法的输入参数类型和 mapper.xml 中定义的每个 sql 的 parameterType 的类型相同</li>
+<li>Mapper 接口方法的输出参数类型和 mapper.xml 中定义的每个 sql 的 resultType 的类型相同</li>
+<li>Mapper.xml 文件中的 namespace 即是 mapper 接口的类路径</li>
+</ul>
+<h5 id="简述一下Mybatis-的编程步骤"><a href="#简述一下Mybatis-的编程步骤" class="headerlink" title="简述一下Mybatis 的编程步骤"></a>简述一下Mybatis 的编程步骤</h5><ol>
+<li>创建 SqlSessionFactory</li>
+<li>通过 SqlSessionFactory 创建 SqlSession</li>
+<li>通过 sqlsession 执行数据库操作</li>
+<li>调用 session.commit()提交事务</li>
+<li>调用 session.close()关闭会话</li>
+</ol>
+<h5 id="Mybatis动态sql和执行原理"><a href="#Mybatis动态sql和执行原理" class="headerlink" title="Mybatis动态sql和执行原理"></a>Mybatis动态sql和执行原理</h5><p>Mybatis动态sql可以让我们在Xml映射文件内，以标签的形式编写动态sql，完成逻辑判断和动态拼接sql的功能，Mybatis提供了9种动态sql标签trim|where|set|foreach|if|choose|when|otherwise|bind。<br><strong>执行原理</strong>为，使用OGNL从sql参数对象中计算表达式的值，根据表达式的值动态拼接sql，以此来完成动态sql的功能。</p>
+<h5 id="Mybatis是否支持延迟加载？如果支持，它的实现原理是什么？"><a href="#Mybatis是否支持延迟加载？如果支持，它的实现原理是什么？" class="headerlink" title="Mybatis是否支持延迟加载？如果支持，它的实现原理是什么？"></a>Mybatis是否支持延迟加载？如果支持，它的实现原理是什么？</h5><p>Mybatis仅支持association关联对象和collection关联集合对象的延迟加载，association指的就是一对一，collection指的就是一对多查询。在Mybatis配置文件中，可以配置是否启用延迟加载lazyLoadingEnabled=true|false。<br>它的原理是，使用CGLIB创建目标对象的代理对象，当调用目标方法时，进入拦截器方法，比如调用a.getB().getName()，拦截器invoke()方法发现a.getB()是null值，那么就会单独发送事先保存好的查询关联B对象的sql，把B查询上来，然后调用a.setB(b)，于是a的对象b属性就有值了，接着完成a.getB().getName()方法的调用。这就是延迟加载的基本原理。<br>不光是Mybatis，几乎所有的包括Hibernate，支持延迟加载的原理都是一样的。</p>
+<h5 id="当实体类中的属性名和表中的字段名不一样-，怎么办-？"><a href="#当实体类中的属性名和表中的字段名不一样-，怎么办-？" class="headerlink" title="当实体类中的属性名和表中的字段名不一样 ，怎么办 ？"></a>当实体类中的属性名和表中的字段名不一样 ，怎么办 ？</h5><ol>
+<li>通过在查询的sql语句中定义字段名的别名，让字段名的别名和实体类的属性名一致。</li>
+<li>通过<resultMap>来映射字段名和实体类属性名的一一对应的关系。</li>
+</ol>
+<h5 id="Mybatis的一级、二级缓存"><a href="#Mybatis的一级、二级缓存" class="headerlink" title="Mybatis的一级、二级缓存:"></a>Mybatis的一级、二级缓存:</h5><ol>
+<li>一级缓存: 基于 PerpetualCache 的 HashMap 本地缓存，其存储作用域为 Session，当 Session flush 或 close 之后，该 Session 中的所有 Cache 就将清空，默认打开一级缓存。</li>
+<li>二级缓存与一级缓存其机制相同，默认也是采用 PerpetualCache，HashMap 存储，不同在于其存储作用域为 Mapper(Namespace)，并且可自定义存储源，如 Ehcache。默认不打开二级缓存，要开启二级缓存，使用二级缓存属性类需要实现Serializable序列化接口(可用来保存对象的状态),可在它的映射文件中配置<cache/> ；</li>
+<li>对于缓存数据更新机制，当某一个作用域(一级缓存 Session/二级缓存Namespaces)的进行了C/U/D 操作后，默认该作用域下所有 select 中的缓存将被 clear 掉并重新更新，如果开启了二级缓存，则只根据配置判断是否刷新。</li>
+</ol>
+<h4 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h4><h5 id="什么是-SpringBoot？"><a href="#什么是-SpringBoot？" class="headerlink" title="什么是 SpringBoot？"></a>什么是 SpringBoot？</h5><p>spring Boot 是为 spring 服务的，是用来简化新 spring 应用的初始搭建以及开发过程的。Spring Boot是Spring开源组织下的子项目，是Spring组件一站式解决方案，主要是简化了使用Spring的难度，简省了繁重的配置，提供了各种启动器，开发者能快速上手。</p>
+<p><strong>1.</strong> <strong>为什么要用 spring boot？</strong></p>
+<p>配置简单<br> 独立运行<br> 自动装配<br> 无代码生成和 xml 配置<br> 提供应用监控<br> 易上手<br> 提升开发效率</p>
+<h5 id="为什么要用SpringBoot-springboot的优点-？"><a href="#为什么要用SpringBoot-springboot的优点-？" class="headerlink" title="为什么要用SpringBoot(springboot的优点)？"></a>为什么要用SpringBoot(springboot的优点)？</h5><p>为了解决java开发中的，繁多的配置、底下的开发效率，复杂的部署流程，和第三方技术集成难度大的问题，产生了spring boot。springboot 使用 “习惯优于配置”的理念让项目快速运行起来，使用springboot很容易创建一个独立运行的jar，内嵌servlet容器</p>
+<ul>
+<li>独立运行spring项目，springboot可以以jar包的形式独立运行，运行一个springboot项目只需要 java -jar xxx.jar 来运行</li>
+<li>内嵌servlet容器，可以内嵌tomcat，接天jetty，或者undertow，这样我们就可以不用war包形式部署项目</li>
+<li>提供starter简化maven配置，spring提供了一系列starter pom 来简化maven的依赖加载， 当使用了 spring-boot-starter-web时，会自动加载所需要的依赖包</li>
+<li>自动配置spring sprintboot 会根据在类路径的jar包，类，为jar包中的类自动配置bean，这样会极大的减少使用的配置，会根据启动类所在的目录，自动配置bean</li>
+</ul>
+<p><strong>1.</strong> <strong>spring boot</strong> <strong>有哪些方式可以实现热部署？</strong></p>
+<p>使用 devtools 启动热部署，添加 devtools 库，在配置文件中把 spring. devtools. restart. enabled 设置为 true；<br>   使用 Intellij Idea 编辑器，勾上自动编译或手动重新编译。</p>
+<p><strong>1.</strong> <strong>SpringBoot</strong> <strong>有哪几种读取配置的方式？</strong></p>
+<p>方式一： 通过@Value(“${spring.datasource.url}”)这样的方式读取<br>   方式二：通过@ConfigurationProperties(prefix = “spring.datasource”)这种写法系统会依据prefix前缀自动注入配置数据到数据实体变量,这种方式不错,但是存在缺陷,我们编写的PropertyPlaceholderConfigurer扩展字段会无效,所以如果只是单纯的读取配置而不需要额外操作时可使用这方式最简单</p>
+<p>方式三： 我们可以直接注入Environment对象示例并读取properties对象属性environment.getProperty(“spring.datasource.database”);与方式一的本质差不多,我们不需要编写对应字段的模型对象,但是对于程序可阅读性不好友,复用率不高</p>
+<p>方式四： 通过系统启动时候初始化Listener,使用PropertiesLoaderUtils工具类读取指定配置文件并获得Properties配置对象,我们可以随时随地使用该对象的属性,这种方式比较少用,针对比较自定义的配置数据可使用该方式</p>
+<p><strong>2.</strong> <strong>SpringBoot</strong> <strong>配置加载顺序？</strong></p>
+<p>在不指定要被加载文件时，默认的加载顺序：由里向外加载，所以最外层的最后被加载，会覆盖里层的属性，加载顺序依次为：</p>
+<p>l 位于与jar包同级目录下的config文件夹，</p>
+<p>l 位于与jar包同级目录下</p>
+<p>l idea 环境下，resource文件夹下的config文件夹</p>
+<p>l idea 环境下，resource文件夹下 （1-&gt;4, 外-&gt;里）</p>
+<h5 id="SpringBoot-的常用注解有哪些？"><a href="#SpringBoot-的常用注解有哪些？" class="headerlink" title="SpringBoot 的常用注解有哪些？"></a>SpringBoot 的常用注解有哪些？</h5><p>@SpringBootApplication:包含@Configuration、@EnableAutoConfiguration、@ComponentScan通常用在主类上；<br>@ComponentScan:组件扫描。个人理解相当于，如果扫描到有@Component @Controller @Service等这些注解的类，则把这些类注册为bean*；<br>@Configuration:指出该类是 Bean 配置的信息源，相当于XML中的，一般加在主类上；<br>@Bean:相当于XML中的,放在方法的上面，而不是类，意思是产生一个bean,并交给spring管理；<br>@Import：用来导入其他配置类。<br>@ImportResource：用来加载xml配置文件。<br>@ControllerAdvice：包含@Component。可以被扫描到。统一处理异常。<br>@ExceptionHandler（Exception.class）：用在方法上面表示遇到这个异常就执行以下方法。</p>
+<h4 id="Springcloud"><a href="#Springcloud" class="headerlink" title="Springcloud"></a>Springcloud</h4><h5 id="什么是-springcloud？"><a href="#什么是-springcloud？" class="headerlink" title="什么是 springcloud？"></a>什么是 springcloud？</h5><p>SpringCloud是基于SpringBoot的一整套实现微服务的<strong>框架</strong>.是一系列框架的有序集合。<strong>它利用 spring boot 的开发便利性巧妙地简化了分布式系统基础设施的开发</strong>，如服务发现注册、配置中心、消息总线、负载均衡、断路器、数据监控等，都可以用 spring boot 的开发风格做到一键启动和部署。</p>
+<h5 id="什么是微服务？"><a href="#什么是微服务？" class="headerlink" title="什么是微服务？"></a>什么是微服务？</h5><p>微服务架构是一种架构模式或者说是一种架构风格，它提倡将单一应用程序划分为一组小的服务，每个服务运行在其独立的自己的进程中，服务之间相互协调、互相配合，为用户提供最终价值。服务之间采用轻量级的通信机制互相沟通（通常是基于HTTP的RESTful API），每个服务都围绕着具体的业务进行构建，并且能够被独立的构建在生产环境、类生产环境等。另外，应避免统一的、集中式的服务管理机制，对具体的一个服务而言，应根据业务上下文，选择合适的语言、工具对其进行构建，可以有一个非常轻量级的集中式管理来协调这些服务，可以使用不同的语言来编写服务，也可以使用不同的数据存储。</p>
+<h5 id="Spring-Cloud由哪些组件组成？"><a href="#Spring-Cloud由哪些组件组成？" class="headerlink" title="Spring Cloud由哪些组件组成？"></a>Spring Cloud由哪些组件组成？</h5><ul>
+<li><strong>Eureka：服务注册与发现</strong></li>
+<li><strong><code>geteway</code>：服务网关</strong></li>
+<li><strong><code>Ribbon</code>：客户端负载均衡</strong></li>
+<li><strong><code>Feign</code>：声明性的Web服务客户端</strong></li>
+<li><strong><code>Hystrix</code>：断路器</strong></li>
+<li><strong><code>Config</code>：分布式统一配置管理</strong></li>
+</ul>
+<h5 id="springcloud如何实现服务的注册"><a href="#springcloud如何实现服务的注册" class="headerlink" title="springcloud如何实现服务的注册?"></a>springcloud如何实现服务的注册?</h5><p>1.服务发布时，指定对应的服务名,将服务注册到 注册中心(eureka zookeeper)<br>2.注册中心加@EnableEurekaServer,服务用@EnableDiscoveryClient，然后用ribbon或feign进行服务直接的调用发现。</p>
+<h5 id="SpringCloud和-dubbo区别"><a href="#SpringCloud和-dubbo区别" class="headerlink" title="SpringCloud和 dubbo区别?"></a>SpringCloud和 dubbo区别?</h5><ul>
+<li>服务调用方式：<br>dubbo是 RPC<br>springcloud 是Rest Api</li>
+<li>注册中心：<br>dubbo是 zookeeper；<br>springcloud是 eureka，也可以是 zookeeper</li>
+<li>服务网关：<br>dubbo本身没有实现，只能通过其他第三方技术整合；<br>springcloud有Zuul路由网关，作为路由服务器，进行消费者的请求分发；springcloud支持断路器，与git完美集成配置文件支持版本控制，事物总线实现配置文件的更新与服务自动装配等等一系列的微服务架构要素。</li>
+</ul>
+<h5 id="Eureka的自我保护机制？"><a href="#Eureka的自我保护机制？" class="headerlink" title="Eureka的自我保护机制？"></a>Eureka的自我保护机制？</h5><p>当一个服务未按时进行心跳续约时，在生产环境下，因为网络延迟等原因，此时就把服务剔除列表并不妥当，因为服务可能没有宕机。 Eureka就会把当前实例的注册信息保护起来，不予剔除。生产环境下这很有效，保证了大多数服务依然可用。但是有可能会造成一些挂掉的服务被剔除有延迟。</p>
+<h5 id="Eureka-对比-ZooKeeper"><a href="#Eureka-对比-ZooKeeper" class="headerlink" title="Eureka 对比 ZooKeeper"></a>Eureka 对比 ZooKeeper</h5><ol>
+<li><p>ZooKeeper 保证的是 CP，Eureka 保证的是 AP</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">CAP</span>解释：<br><span class="hljs-selector-tag">C</span>：一致性<span class="hljs-selector-tag">Consistency</span> （取舍:强一致性、单调一致性、会话一致性、最终一致性、弱一致性）<br><span class="hljs-selector-tag">A</span>：可用性 <span class="hljs-selector-tag">Availability</span><br><span class="hljs-selector-tag">P</span>：分区容错性<span class="hljs-selector-tag">Partition</span> <span class="hljs-selector-tag">tolerance</span><br></code></pre></td></tr></table></figure></li>
+<li><p>Eureka 本质上是一个工程，而 ZooKeeper 只是一个进程</p>
+</li>
+<li><p>ZooKeeper 有 Leader 和 Follower 角色，Eureka 各个节点是平等关系</p>
+</li>
+<li><p>ZooKeeper 在选举期间注册服务瘫痪，虽然服务最终会恢复，但是选举期间不可用；Eureka 只要有一实例就可以保证服务可用，但查询到的数据可能并不是最新的</p>
+</li>
+<li><p>ZooKeeper 采用过半数存活原则，Eureka 采用自我保护机制解决分区问题</p>
+</li>
+<li><p>Eureka 自我保护机制会导致：</p>
+<ul>
+<li>Eureka 不再从注册列表移除因长时间没收到心跳而应该过期的服务</li>
+<li>Eureka 仍然能够接受新服务的注册和查询请求，但是不会被同步到其他节点（高可用）</li>
+<li>Eureka 在网络稳定的时候，当前实例新的注册信息会被同步到其他节点中（最终一致性）</li>
+<li>Eureka 可以很好的应对因网络故障导致部分节点失去联系的情况，而不会像 ZooKeeper 一样使得整个注册中心瘫痪</li>
+</ul>
+</li>
+</ol>
+<p><strong>多种注册中心对比</strong></p>
+<p><img src="C:/Users/MashiroShiina/AppData/Roaming/Typora/draftsRecover/register-center-vs.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h5 id="Hystrix"><a href="#Hystrix" class="headerlink" title="Hystrix"></a>Hystrix</h5><p>在分布式系统，我们一定会依赖各种服务，那么这些个服务一定会出现失败的情况，就会导致雪崩，Hystrix就是这样的一个工具，防雪崩利器，它具有服务降级，服务熔断，服务隔离，监控等一些防止雪崩的技术。<br>Hystrix有四种防雪崩方式：</p>
+<ul>
+<li><code>服务降级</code>：接口调用失败就调用本地的方法返回一个空</li>
+<li><code>服务熔断</code>：接口调用失败就会进入调用接口提前定义好的一个熔断的方法，返回错误信息</li>
+<li><code>服务隔离</code>：隔离服务之间相互影响</li>
+<li><code>服务监控</code>：在服务发生调用时,会将每秒请求数、成功请求数等运行指标记录下来。</li>
+</ul>
+<h5 id="linux常见命令"><a href="#linux常见命令" class="headerlink" title="linux常见命令"></a>linux常见命令</h5><p>后端程序员对linux要求不高,会用命令操作即可,面试中问到linux是否熟悉,大胆回复熟悉,后端程序员能够在linux安装软件,配置软件,部署项目即可,下面这些命令基本满足要求</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-built_in">mkdir</span> 新建文件夹<br>touch 新建文件<br><span class="hljs-keyword">cp</span> 复制<br>mv 剪切<br>rm 删除<br><span class="hljs-keyword">cat</span> 查看全部内容 <br>less 查看第一页<br>more 查看最后页<br>tail -<span class="hljs-keyword">f</span> 查看<br><span class="hljs-keyword">vim</span> 编辑文件<br><span class="hljs-keyword">ps</span> -ef | <span class="hljs-keyword">grep</span> 查看进程状态<br>kill -<span class="hljs-number">9</span> 杀死进程<br>jps 查看java进程状态  等于<span class="hljs-keyword">ps</span> -ef | <span class="hljs-keyword">grep</span> java<br>su 切换用户<br>sudo 暂时切换到超级管理员<br>chmod 修改文件权限相关<br><span class="hljs-keyword">ll</span> 查看当前目录内容  等于<span class="hljs-keyword">ls</span> -<span class="hljs-keyword">l</span><br>java -jar 启动java项目<br>top 任务管理器<br>安装软件<br>yum源安装: yum install 软件名<br>rpm包安装: rpm [选项] rpm包<br>tar.gz安装: tar zxvf 安装包<br></code></pre></td></tr></table></figure>
+
+
+
+
+
+<p><strong>项目技术点:</strong></p>
+<p><strong>MQ****：</strong></p>
+<p>**1.**<strong>为什么使用MQ?</strong></p>
+<p>l 使用MQ的好处:解耦，异步，削峰平谷;</p>
+<p>l 解耦：</p>
+<p>l 当A系统生产关键数据,而且B,C,D系统需要A系统给它们发送数据,来进行下一步操作,此时A系统和BCD系统产生了严重的耦合,所有的操作和维护都要在A系统中进行,如果将A系统产生的数据放到MQ当中,让BCD系统需要的时候去消费,此时就解放了A系统,不用考虑调用成功,失败超时等情况,同时ABCD系统独立运行,后续新添加系统需要A系统的数据,也不需要去修改A系统的代码,达到了解耦的效果   </p>
+<p>l 异步：</p>
+<p>l 一般互联网类企业,对用户的直接操作,一般要求每个请求在200ms以内完成。对于一个系统调用多个系统,在不适用mq的情况下,它执行完返回的耗时,是执行完所有系统所需时间的总和;使用mq进行优化后,执行的耗时,则是执行主系统的耗时,以及加上主系统发送数据到消息队列的耗时,大幅度提升高延时接口的性能,提升了用户体验.</p>
+<p>l 削峰平谷：</p>
+<p>l 一般MySQL的每秒请求最高在2000左右，用户访问量高峰期的时候涌入的大量请求,很可能将MySQL给打死,然后系统就挂掉,但是高峰期过了,请求量可能远远低于2000,所以这种情况去增加服务器就不值得,如果使用mq的情况,将用户的请求全部放到mq中,然后让系统去消费用户的请求,不要超过系统所能承受的最大请求数量,保证系统不会再高峰期挂掉,但此时可能有几十万或几百万请求积压在mq中,但是高峰期一过,系统还是按照最大请求数量进行处理请求,很快就能将积压请求处理完</p>
+<p>​    </p>
+<p>l 使用MQ的缺陷:</p>
+<p>l 系统可用性降低:以前只要担心系统的问题,现在还要考虑mq如果挂掉的问题,因为mq一旦挂掉,所关联的系统,就会统统挂掉</p>
+<p>l 系统复杂性变高:考虑的问题变多,要考虑消息丢失,消息重复消费的情况</p>
+<p>l 一致性问题:比如A系统调用BCD系统,BCD同时成功才能执行成功,返回数据,现在BC执行成功,D发生异常的情况,并没有执行成功,但是A给用户返回的是成功</p>
+<p>​    </p>
+<p>**2.**<strong>你了解哪些MQ技术，ActiveMQ,RabbitMQ,RocketMQ,kafka</strong></p>
+<p>l ActiveMQ它可以支持万级的吞吐量,它是一个比较成熟完善的中间件,但是它存在有少量信息丢失的情况,而且目前官方对他的更新迭代不是很即时,社区的活跃度不是很高</p>
+<p>l RabbitMQ是一款用Erlang语言开发的消息中间件,它延时低,唯一一款达到微妙级延时的消息中间件,而且社区活跃度高,对于bug问题的修复很及时,而且提供了很友善的后台界面,唯一的劣势是就是我们搞java开发的很少有人能够阅读它的源码,对于问题的修复仅仅依靠社区。</p>
+<p>l RocketMQ是阿里旗下的一款品质优秀的MQ,它可以达到十万级的吞吐量,而且它还是支持分布式事务,应用于分布式架构,它的维护基本上都是靠阿里,如果哪天阿里宣布放弃这个项目的维护,除非你们公司有能力继续来维护RocketMQ的使用。</p>
+<p>l Kafka也是一款分布式的中间件,最大优点就是其吞吐量高,一般运用于大数据系统的实时运算和日志采集的场景,功能简单,可靠性高,扩展性高,唯一的缺点是可能导致重复消费,但是这点轻微的影响在大数据场景下可以忽略。</p>
+<p><img src="C:\Users\MashiroShiina\AppData\Roaming\Typora\typora-user-images\image-20210114125750724.png" srcset="/img/loading.gif" lazyload alt="image-20210114125750724"></p>
+<p><img src="C:\Users\MashiroShiina\AppData\Roaming\Typora\typora-user-images\image-20210114125820069.png" srcset="/img/loading.gif" lazyload alt="image-20210114125820069"></p>
+<p><strong>3.RabbitMQ</strong> <strong>的使用场景有哪些？</strong></p>
+<p>​     抢购活动，削峰填谷，防止系统崩塌。</p>
+<p>延迟信息处理，比如 10 分钟之后给下单未付款的用户发送邮件提醒。</p>
+<p>解耦系统，对于新增的功能可以单独写模块扩展，比如用户确认评价之后，新增了给用户返积分的功能，这个时候不用在业务代码里添加新增积分的功能，只需要把新增积分的接口订阅确认评价的消息队列即可，后面再添加任何功能只需要订阅对应的消息队列即可。</p>
+<p>**4.**<strong>如何保证MQ的高可用?</strong></p>
+<p>l 非分布式的MQ的高可用:</p>
+<p>l 普通集群模式:实际queue保存在一个节点上,其他节点保存该queue的元数据,消费者连接某个节点,该节点去调用实际存放queue的节点,返回数据,说白了只是简单的提高了吞吐量而已.</p>
+<p>缺陷在于:在集群内部产生大量的数据传输,高可用性没有,queue所在的节点宕机,服务就没法继续使用</p>
+<p>l 镜像集群模式:每个节点上都保存了实际的queue的全部数据,消费者无论连接哪个节点,都能直接获取到数据.任何一个节点宕机,其他节点还存在queue的全部数据,消费者换个节点继续消费,这是高可用的模式</p>
+<p>l 分布式MQ的高可用:</p>
+<p>l 假设生产者往topic里写了三条数据,每条数据放在一个partition中,每个partition部署在一台机器中,每个partition都有一个或多个replica副本,其中有一个是leader,其他的是follower,只有leader能够向外提供数据的读写,生产者写入消息时,leader负责向follower同步消息,此时高可用架构就已经体现,如果一台leader宕机,会从它的follower中选举一个leader,继续向外提供服务</p>
+<p>​      </p>
+<p>**5.**<strong>如何保证消息不被重复消费(如何保证消息消费时的幂等性)?</strong></p>
+<p>l 重复消费:</p>
+<p>l 每个中间件它能够保证的是消息不丢失,但不能保证消息不被重复发送，所以接收方就要做幂等性的判断，防止消息重复消费，例如：支付金额的消息被消费了两次，那么所得到的钱数就是错误的，这种情况在系统中肯定是不允许存在的。</p>
+<p>l 消费的幂等性（同样的操作，在一段时间内，只执行一次）:</p>
+<p>l 如果是往数据库里写入数据,就根据主键查一下,如果数据已经存在,就update</p>
+<p>l 可以在把数据先存在set或者redis中,消费前,先去里面查看,数据是否已存在,已存在就丢弃这数据,比如说我们的订单系统,生成订单也会用到mq,此时订单id就是全局唯一的id,在写入数据库之前,就可以先把数据去redis中查询,如果redis中已经存在,则不进行消费操作,如果redis中不存在的话,就存在redis中,然后进行下一步操作.</p>
+<p>l 在数据库中设置唯一约束,就不会导致重复数据的多次插入</p>
+<p>​    </p>
+<p>**6.**<strong>如何保证消息不丢失</strong></p>
+<p>l rabbitMQ:</p>
+<p>l 消息丢失的情况:生产者写的消息在到中间件的网络传输过程中就丢了,或者是消息到了中间件,但是内部出错,消息没保存下来</p>
+<p>l 中间件将消息保存下来,还没等到消费者消费完,就自己挂掉,导致消息丢失</p>
+<p>l 消费者取到消息还没来得及消费就自己挂掉了,因为rabbitMQ消费者开启了autoAck,在消费数据还没成功时,就已经向中间件发送完成的信息,此时消费者挂掉,就会消息丢失 </p>
+<p>l 解决方案:</p>
+<p>l 生产者消息丢失,可以通过开启事务功能,如果消息没有发送成功,发生异常就回滚,然后重试发送消息,发送成功就提交事务,这个的缺陷就是阻塞式的,降低吞吐量,耗费性能;如果是rabbitMQ可以开启confirm模式,它能给每次写的消息都分配一个唯一的id,如果写入到rabbitMQ中,rabbitMQ就会回传一个ack消息,如果没有就会会挑一个nack接口,告诉你消息接收失败,你可以重试,confrim机制是异步的,效率会高很多</p>
+<p>l 关于中间件的数据丢失,可以开启中间件的持久化,将消息持久化磁盘中,中间件挂了恢复之后自动读取之前存储的数据.</p>
+<p>l 消费者数据丢失,关闭rabbitMQ的autoACK机制,自己手动提交完成信息</p>
+<p>**7.**<strong>如何保证消息的顺序性</strong></p>
+<p>l rabbitMQ为多个消费者开辟多个queue队列（先进先出）,将保证操作顺序的消息发布到同一个队列中去，操作这个队列的消费者会一个一个消息去处理，因为队列这种结构是先进先出的类型，所以保证的数据的顺序性。    </p>
+<p>​      </p>
+<p>**8.**<strong>消息大量积压怎么解决？</strong></p>
+<p>l 临时启动多个消息者，并发处理消息</p>
+<p>l 临时启动多个消息者，接受消息之后，不处理。暂时把消息写到文件中。消息中间件中的消息处理的完了。关闭临时消费者。单独写个离线程序，处理文件中的消息  </p>
+<p>l 临时启动多个消息者，接受消息之后，直接丢弃。 可以让生产者的源头恢复数据</p>
+<p><strong>9.RabbitMQ</strong> <strong>节点的类型有哪些？</strong></p>
+<p>l 磁盘节点：消息会存储到磁盘。</p>
+<p>l 内存节点：消息都存储在内存中，重启服务器消息丢失，性能高于磁盘类型。</p>
+<p><strong>10.rabbitmq****如何确认消息一定发送到了消息中间件中呢?</strong></p>
+<p>消息发送到server是先通过交换机,再到消息队列,只要数据到队列,那么此消息肯定是发送成功的.</p>
+<p>  第一步确定消息发送到了交换机.</p>
+<p>使用发送方确认机制来判断消息是否发送成功.</p>
+<p>  第二步确认交换机把消息路由到消息队列.</p>
+<p>使用失败回调来判断消息是否发送成功.  </p>
+<p>  只有两步都成功,此消息才是发送成功的.</p>
+<p><strong>11.rabbitmq****的集群</strong></p>
+<p>参考网站:docker中搭建rabbitmq集群-&gt; <a target="_blank" rel="noopener" href="https://www.cnblogs.com/vipstone/p/9362388.html">https://www.cnblogs.com/vipstone/p/9362388.html</a></p>
+<p>  集群分为普通集群和镜像集群.   </p>
+<p>  普通集群: 普通集群,他会把所有节点的交换机信息和队列的元数据分为两种(队列数据分为两种: 一种为队列里面的消息,另一种是队列本身的信息, 后者被称为元数据.)进行复制,确保所有的节点都有一份.</p>
+<p>  镜像集群: 在普通集群的基础上,把所有的队列数据完全同步(对性能有一定的影响)当对数据可靠性要求高时,可以使用镜像模式.</p>
+<p>  镜像集群实现由两种方式:  一种是直接在管理台控制,</p>
+<p>​               一种是在声明队列的时候控制.</p>
+<p>  配置集群还设计到节点信息, 有内存节点和磁盘节点,如果对队列有修改的情况下,必须有磁盘节点,用来保存信息,内存节点断电后,信息就消失,无法保存. 默认就是磁盘节点, 设置 –ram为内存节点.</p>
+<h1 id="Redis："><a href="#Redis：" class="headerlink" title="Redis："></a>Redis：</h1><p><strong>1.</strong> <strong>使用redis缓存的好处</strong></p>
+<p>l 提高并发量，不需要每次都访问数据库，提高并发量。</p>
+<p>l 提高性能，redis运行在内存中，内存的执行效率，远远超过数据库。</p>
+<p><strong>2.</strong> <strong>Redis****的key和value的存储大小有限制吗？</strong></p>
+<p>l Redis的key和value的存储大小都是有限制的，都是512M。</p>
+<p><strong>3.</strong> <strong>redis****存储什么数据类型</strong></p>
+<p>(1)    字符串（String）</p>
+<p>(2)    字符串列表（lists）</p>
+<p>(3)    字符串集合（sets）</p>
+<p>(4)    有序字符串集合（sorted sets）</p>
+<p>(5)    哈希（hash）</p>
+<p><strong>4.</strong> <strong>使用redis缓存的弊端</strong></p>
+<p>l 缓存穿透，大量的请求访问,查询的是数据库中不存在的数据,就会在缓存中无法命中,直接去访问数据库,数据库中也查询不到,自然无法将结果写入缓存,下一秒又有大量请求查询不存在的数据,导致数据库最终挂掉(要么系统出bug,要么黑客恶意攻击)</p>
+<p>解决方案:</p>
+<p>l 在数据库中没有查询到的数据,存储一个特定值到缓存中,这样下次恶意访问就可以去缓存中查询到数据,不会访问到数据库.注意的是这些特定的key,需要设置过期时间，避免黑客攻击时，大量的无效key把redis存满。</p>
+<p>l 缓存雪崩，大规模的key失效，大量的请求通过key访问到数据库，导致数据库直接崩溃,然后系统直接瘫痪.   </p>
+<p>解决方案:</p>
+<p>l 事前:保证redis集群的高可用性,redis cluster,主从机制;</p>
+<p>l 事中:hystrix（熔断器）限流+降级,避免数据库被打死.高并发的访问量走hystrix限流组件,让访问量保持在数据库最大负载范围内,保证数据库不被打死,系统可以继续使用.剩余的请求走降级组件,返回一些默认的值或者是友情提示等</p>
+<p>l 事后:redis持久化机制,尽快回复缓存集群,一旦重启,自动从磁盘上加载数据,回复内存中的数据</p>
+<p>l 缓存与数据库不一致，修改数据时，数据库和缓存数据不一致。   </p>
+<p>最初级的缓存不一致:</p>
+<p>出现场景：</p>
+<p>l 先修改数据库,再删除缓存,如果修改缓存失败,就会导致数据库中式新数据,缓存中是旧数据,数据不一致</p>
+<p>解决思路:</p>
+<p>l 先删除缓存,再修改数据库,如果删除缓存成功,修改数据库失败,那么数据库中是旧数据,缓存中是空的,读的时候缓存中没有,去数据库中读旧数据,然后更新到缓存中去</p>
+<p>高并发场景下数据库与缓存的数据不一致:</p>
+<p>出现场景：</p>
+<p>l 读写并发请求,导致数据库和缓存中的数据不一致,在写请求删除缓存,修改数据库库存还未成功时,查询库存的请求就发来,先去缓存中查询,发现是空,然后去数据库中查,然后将结果放入缓存中,然后修改库存的操作成功,导致数据库中是新数据,缓存中是旧数据</p>
+<p>解决思路:</p>
+<p>l 相同的商品id,进行哈希取值,再加上对内存队列的数量进行取模,每个商品都可以路由到某一个内存队列中,然后将去请求和写请求串行化,这样就可保证一定不会出现不一致的情况,但是会导致系统的吞吐量会大幅降低</p>
+<p>l 缓存并发竞争，同一时间，多个线程来执行，操作同一个key。  </p>
+<p>解决思路:</p>
+<p>l 方式一：分布式锁,（zookeeper分布式锁），确保同一时间,只能由一个系统实例在操作某个key,别的实例不被允许读和写</p>
+<p>l 方式二：乐观锁 ，每次要写之前,先判断这个value的时间戳是否比缓存里的更新,如果新就允许写.</p>
+<p>​    </p>
+<p><strong>5.</strong> <strong>为什么redis是单线程的但是还可以支撑高并发?</strong></p>
+<p>l redis线程模型:redis里有个处理器叫做文件事件处理器(file event handler),这个文件事件处理器是单线程的执行的,redis所以是单线程的模型。   </p>
+<p>执行流程:</p>
+<p>l redis启动初始化时,redis会将连接应答器和AE_READABLE事件关联</p>
+<p>l 客户端跟redis连接,会在serverSocket产生一个AE_READABLE事件,然后由IO多路复用程序监听到事件,将serverSocket压入队列,然后连接应答处理器来处理事件,和客户端建立连接,创建对应的socket,同时将这个socket的AE_READABLE事件跟命令请求处理器关联起来</p>
+<p>l 客户端向redis发起请求时,首先会在socket中产生一个AE_READABLE事件,然后被监听,被压入队列,然后由对应的命令请求处理器来处理</p>
+<p>l redis准备好给客户端响应数据之后,就会将socket的AE_WRITABLE命令跟回复处理器关联起来,当客户端准备好读取响应数据时,就会在socket上产生一个AE_WRITABLE事件,会由对应的命令回复处理器来处理</p>
+<p>l 命令回复处理器处理完之后,就会删除这个socket的AE_WRITABLE事件和命令回复处理器的关联关系</p>
+<p>​    </p>
+<p><strong>6.</strong> <strong>Redis****为什么效率高?</strong></p>
+<p>l 核心是基于非阻塞的IO多路复用机制,由监听程序轮询等待的事件,然后压入队列,可以达到一个线程同时处理多个io请求的目的</p>
+<p>l 纯内存操作</p>
+<p>l 单线程避免了多线程的频繁切换问题</p>
+<p><strong>7.</strong> <strong>Redis****由哪些数据类型,分别在哪些场景下使用?</strong></p>
+<p>l String,存储基本的类型    </p>
+<p>l List,有序列表,比如之前项目中的广告缓存,用的就是list集合进行缓存的,它可以用于比如存储粉丝列表,文章的评论列表等等    </p>
+<p>l Set,无序列表,它最主要的特点就是去重,比如微博上查询两个明星的共同粉丝,就可以用set进行去重</p>
+<p>l SortSet,它主要是在set的基础上加上了排序功能</p>
+<p>l Hash,类似map的集合,一般可以用来存储对象,我们系统中的购物车对象就是以hash类型存储在redis中,key就是用户的id,value就是购物车对象</p>
+<p><strong>8.</strong> <strong>Redis****过期策略</strong></p>
+<p>l 定期删除配合惰性删除</p>
+<p>l 定期删除,指的是redis默认每个100ms就抽取一些设置了过期事件的key,检查是否过期,如果过期就删除.如果太多的key都设置了过期时间,每隔几百毫秒,就全部检查删除,cpu的负载会很高.实际上redis是每隔100ms随机抽取一些key来检查和删除.</p>
+<p>l 惰性删除,就是当你获取key时,redis就会检查一下,如果key过期了,就删除,不会返回,如果没过期就返回</p>
+<p>l 因为redis的过期策略会导致你设置了过期key,过期了很多过期key没有被删除,还堆积在内存中,此时就要设置内存淘汰机制来解决了   </p>
+<p>l 内存淘汰机制</p>
+<p>l noevication:当内存不足以容纳写入新数据时,新写入操作就会报错</p>
+<p>l allkeys-lru:当内存不足以容纳新写入数据时,在键空间中,移除最近最少使用的key</p>
+<p>l allkeys-random:在键空间中,随机移除某个key</p>
+<p>l volatile-lru:在设置了过期时间的键空间中,移除最近最少使用的key</p>
+<p>l volatile-random:在设置了过期时间的键空间中,随机移除某个key</p>
+<p>l volatile-ttl:在设置了过期时间的键空间中,由更早过期时间的key优先移除</p>
+<p><strong>9.</strong> <strong>怎样做redis支撑高并发(读多写少用缓存,读少写多用队列)</strong></p>
+<p>l 搭建redis集群,做成主从架构,一主多从,通过redis replication机制实现读写分离,主负责写,并且将数据同步复制到其他slave（从）节点上,从节点负责读,所有的读请求走从节点.好处,可支持水平扩容的读高并发架构 </p>
+<p>l redis replication的核心机制</p>
+<p>l redis采用异步方式复制数据都slave节点上,slave节点会周期性的确认自己每次复制的数据量</p>
+<p>l 一个master（主）节点可以配置多了slave节点</p>
+<p>l slave节点也可以连接其他slave节点</p>
+<p>l slave节点做复制的时候,也不会阻塞对自己的查询操作,它会用旧数据向外提供服务;复制完后,它就删除旧数据,加载新数据,这个时候向外停止服务(毫秒级别)</p>
+<p>l slave节点主要用来横向扩容,做读写分离,提高吞吐量</p>
+<p>l Master（主节点）持久化对于主从架构的安全保障的意义</p>
+<p>l     如果仅仅用slave节点作为master节点的数据热备份,当master节点宕机后重启,数据清空,本地没有数据可以恢复,它会任为自己的数据就是空的,然后同步到slave节点上,就会导致数据百分百丢失</p>
+<p>l     其次,如果开启了哨兵机制,在master节点挂掉之后,会迅速推选出一个slave节点去做master节点,但是当哨兵还没检测到master节点挂掉,master节点就自动重启了,还是会出现上面的情况</p>
+<p>​    </p>
+<p>l redis主从架构的核心原理</p>
+<p>l 当启动一个slave节点时,会发送一个PSYNC命令给master节点</p>
+<p>l 如果这个slave节点第一次连接master节点,就会出发full resynchronization</p>
+<p>l 开始full resynchronization的时候,master会开启一个后台线程,开始生成一份rdb快照文件,同时还还会继续接收客户端的写命令,存在内存中.RDB文件生成完毕后,master会将这个RDB发送给slave,slave先将RDB写入本地自盘,然后再加载到内存.然后master会将内存中缓存的写命令发送给slave,slave同步这些数据</p>
+<p>l redis的高可用</p>
+<p>l 不可用:虽然主从架构,读写分离可以保证缓存应对高并发场景,但是如果master节点挂掉,整个缓存架构就会挂掉,大量的流量涌入数据库,超过数据库的最大承载压力,数据库挂掉,整个系统就会挂掉不可用</p>
+<p>l 高可用:故障转移,主备切换,当master故障时,自动检测(通过sentinal node 哨兵),将某个slave自动切换成master的过程交主备切换.这个机制实现了redis主从架构下的高可用性   </p>
+<p><strong>10.</strong> <strong>redis****的持久化</strong></p>
+<p>l 如果没有持久化,遇到灾难性故障时,就会丢失所有数据，如果开启持久化到磁盘,定期备份到云服务上,就能保证遇到灾难性故障,就不会丢失全部数据</p>
+<p>l RDB</p>
+<p>l 当redis需要做持久化时,redis会fork一个子进程,将数据写到磁盘写上一个临时RDB文件中,当子进程完成写临时文件后,将原来的RDB换掉    </p>
+<p>l 优势:</p>
+<p>适合做冷备份,在最坏的情况下,恢复数据要比AOF快</p>
+<p>对redis对外提供读写服务,影响服务非常小</p>
+<p>RDB数据快照文件更少 </p>
+<p>l AOF</p>
+<p>l 可以做到更精细的持久化,redis每执行一个修改数据的命令,都会将它添加到os cache中,一般会每个一秒执行一次fsync操作,保证将os cache中的数据写入磁盘中AOF日志文件中,AOF日志文件以append-only模式写入,文件不容易破损,在AOF日志过大时,就会出现后台重写</p>
+<p>l 优势:</p>
+<p>AOF可以更好的保护数据不丢失,丢失的数据更少</p>
+<p>AOF日志文件以append-only模式写入,没有磁盘寻址的开销,写入性能非常高</p>
+<p>AOF日志过大时,也不会影响客户端的读写</p>
+<p>l RDB和AOF到底如何抉择</p>
+<p>l 综合使用两种持久化机制,用AOF保证数据不丢失,作为数据恢复的第一选择,用RDB来做不同程度的冷备份,在AOF文件丢失或者损坏不可用的情况下,用RDB来进行快速的数据回复</p>
+<p><strong>11.</strong> <strong>redis****怎么设置缓存大小</strong></p>
+<p>打开redis配置文件</p>
+<p>示例：maxmemory 100mb </p>
+<p>单位：mb,gb。  </p>
+<p>默认为0，没有指定最大缓存，如果有新的数据添加，超过最大内存，则会使redis崩溃，所以一点要设置。</p>
+<p>设置maxmemory之后，配合的要设置缓存数据回收策略, 可以通过设置LRU算法来删除部分key，释放空间(LRU是Least Recently Used 近期最少使用算法。)。</p>
+<p>就可以修改缓存大小为16gb.</p>
+<p><strong>12.</strong> <strong>redis****集群主从数据如何同步</strong></p>
+<p>答1:</p>
+<p> Redis主从同步有两种方式：全同步和部分同步。主从刚刚连接的时候，进行全量同步；全同步结束后，进行增量同步。</p>
+<p>答2:</p>
+<p>(1) 全量同步：<br> Redis全量复制一般发生在S-ave初始化阶段，这时S-ave需要将Master上的所有数据都复制一份。具体步骤如下：<br> 　1）从服务器连接主服务器，发送SYNC命令；<br> 　2）主服务器接收到SYNC命名后，开始执行BGSAVE命令生成RDB文件并使用缓冲区记录此后执行的所有写命令；<br> 　3）主服务器BGSAVE执行完后，向所有从服务器发送快照文件，并在发送期间继续记录被执行的写命令；<br> 　4）从服务器收到快照文件后丢弃所有旧数据，载入收到的快照；<br> 　5）主服务器快照发送完毕后开始向从服务器发送缓冲区中的写命令；<br> 　6）从服务器完成对快照的载入，开始接收命令请求，并执行来自主服务器缓冲区的写命令；<br> (2)增量同步：<br> Redis增量复制是指S-ave初始化后开始正常工作时主服务器发生的写操作同步到从服务器的过程。<br> 增量复制的过程主要是主服务器每执行一个写命令就会向从服务器发送相同的写命令，从服务器接收并执行收到的写命令<br> (3)Redis主从同步策略：<br> 主从刚刚连接的时候，进行全量同步；全同步结束后，进行增量同步。当然，如果有需要，s-ave 在任何时候都可以发起全量同步。redis 策略是，无论如何，首先会尝试进行增量同步，如不成功，要求从机进行全量同步。</p>
+<p><strong>13.</strong> <strong>Redis****缓存穿透和redis雪崩处理</strong></p>
+<p>**(1)**<strong>缓存穿透</strong></p>
+<p> 一般的缓存系统，都是按照key去缓存查询，如果不存在对应的value，应该去后端系统查询（比如数据库）。如果key对应的value不存在，并且对key并发请求量很大，就会对后端系统造成很大的压力。这就叫做缓存穿透。</p>
+<p><strong>解决方案</strong><strong>(<strong><strong>晦涩</strong></strong>)</strong><br> 对所有可能查询的参数以hash形式存储，在控制层先进行校验，不符合则丢弃。还有最常见的则是采用布隆过滤器，将所有可能存在的数据哈希到一个足够大的bitmap中，一个一定不存在的数据会被这个bitmap拦截掉，从而避免了对底层存储系统的查询压力。<br> 也可以采用一个更为简单粗暴的方法，如果一个查询返回的数据为空（不管是数 据不存在，还是系统故障），我们仍然把这个空结果进行缓存，但它的过期时间会很短，最长不超过五分钟。</p>
+<p>**(2)**<strong>缓存雪崩</strong></p>
+<p> 当缓存服务器重启或者大量缓存集中在某一个时间段失效，这样在失效的时候，也会给后端系统（比如数据库）带来很大的压力。</p>
+<p> 缓存雪崩是指在我们设置缓存是采用了相同的过期时间，导致缓存在某一时期同时失效，请求全部转发到DB，DB瞬间压力过大雪崩。</p>
+<p>**** <strong>解决方案：</strong></p>
+<p> 把缓存时间分散开，比如在原来的时间基础上增加一个随机值，比如1~5分钟随机，这样每一个缓存的过期时间的重复率就会降低，就很难引发集体失效的事件。</p>
+<p><strong>Elasticsearch</strong></p>
+<p><strong>1.Elasticsearch****是如何实现Master选举的</strong></p>
+<p>v Elasticsearch的选主是ZenDiscovery模块负责的，主要包含Ping（节点之间通过这个RPC来发现彼此）和Unicast（单播模块包含一个主机列表以控制哪些节点需要ping通）这两部分；</p>
+<p>v 对所有可以成为master的节点（node.master: true）根据nodeId字典排序，每次选举每个节点都把自己所知道节点排一次序，然后选出第一个（第0位）节点，暂且认为它是master节点。</p>
+<p>v 如果对某个节点的投票数达到一定的值（可以成为master节点数n/2+1）并且该节点自己也选举自己，那这个节点就是master。否则重新选举一直到满足上述条件。</p>
+<p>**2.**<strong>在并发情况下，Elasticsearch如果保证读写一致？</strong></p>
+<p>v 可以通过版本号使用乐观并发控制，以确保新版本不会被旧版本覆盖，由应用层来处理具体的冲突；</p>
+<p>v 另外对于写操作，一致性级别支持quorum/one/all，默认为quorum，即只有当大多数分片可用时才允许写操作。但即使大多数可用，也可能存在因为网络等原因导致写入副本失败，这样该副本被认为故障，分片将会在一个不同的节点上重建。</p>
+<p>v 对于读操作，可以设置replication为sync(默认)，这使得操作在主分片和副本分片都完成后才会返回；如果设置replication为async时，也可以通过设置搜索请求参数_preference为primary来查询主分片，确保文档是最新版本。</p>
+<p><strong>3.Elasticsearch****索引文档的过程</strong></p>
+<p>协调节点默认使用文档ID参与计算（也支持通过routing），以便为路由提供合适的分片。<br> 　shard = hash(document_id) % (num_of_primary_shards)<br> 　当分片所在的节点接收到来自协调节点的请求后，会将请求写入到Memory Buffer，然后定时（默认是每隔1秒）写入到Filesystem Cache，这个从Momery Buffer到Filesystem 　　Cache的过程就叫做refresh；<br> 　当然在某些情况下，存在Momery Buffer和Filesystem Cache的数据可能会丢失，ES是通过translog的机制来保证数据的可靠性的。其实现机制是接收到请求后，同时也会写入到translog中，当Filesystem cache中的数据写入到磁盘中时，才会清除掉，这个过程叫做flush；<br> 　在flush过程中，内存中的缓冲将被清除，内容被写入一个新段，段的fsync将创建一个新的提交点，并将内容刷新到磁盘，旧的translog将被删除并开始一个新的translog。<br> 　flush触发的时机是定时触发（默认30分钟）或者translog变得太大（默认为512M）时；</p>
+<p><strong>4.Elasticsearch****更新和删除文档的过程</strong></p>
+<p>删除和更新也都是写操作，但是Elasticsearch中的文档是不可变的，因此不能被删除或者改动以展示其变更；<br> 　磁盘上的每个段都有一个相应的.del文件。当删除请求发送后，文档并没有真的被删除，而是在.del文件中被标记为删除。该文档依然能匹配查询，但是会在结果中被过滤掉。当段合并时，在.del文件中被标记为删除的文档将不会被写入新段。<br> 　在新的文档被创建时，Elasticsearch会为该文档指定一个版本号，当执行更新时，旧版本的文档在.del文件中被标记为删除，新版本的文档被索引到一个新段。旧版本的文档依然能匹配查询，但是会在结果中被过滤掉。</p>
+<p><strong>5.Elasticsearch****搜索的过程</strong></p>
+<p>搜索被执行成一个两阶段过程，我们称之为 Query Then Fetch；<br> 　在初始查询阶段时，查询会广播到索引中每一个分片拷贝（主分片或者副本分片）。 每个分片在本地执行搜索并构建一个匹配文档的大小为 from + size 的优先队列。PS：在搜索的时候是会查询Filesystem Cache的，但是有部分数据还在Memory Buffer，所以搜索是近实时的。<br> 　每个分片返回各自优先队列中 所有文档的 ID 和排序值 给协调节点，它合并这些值到自己的优先队列中来产生一个全局排序后的结果列表。<br> 　接下来就是 取回阶段，协调节点辨别出哪些文档需要被取回并向相关的分片提交多个 GET 请求。每个分片加载并 丰富 文档，如果有需要的话，接着返回文档给协调节点。一旦所有的文档都被取回了，协调节点返回结果给客户端。<br> 　补充：Query Then Fetch的搜索类型在文档相关性打分的时候参考的是本分片的数据，这样在文档数量较少的时候可能不够准确，DFS Query Then Fetch增加了一个预查询的处理，询问Term和Document frequency，这个评分更准确，但是性能会变差。</p>
+<p><strong>6.ElasticSearch****中的集群、节点、索引、文档、类型是什么？</strong></p>
+<p>　　群集是一个或多个节点（服务器）的集合，它们共同保存您的整个数据，并提供跨所有节点的联合索引和搜索功能。群集由唯一名称标识，默认情况下为“elasticsearch”。此名称很重要，因为如果节点设置为按名称加入群集，则该节点只能是群集的一部分。</p>
+<p>　　节点是属于集群一部分的单个服务器。它存储数据并参与群集索引和搜索功能。</p>
+<p>　　索引就像关系数据库中的“数据库”。它有一个定义多种类型的映射。索引是逻辑名称空间，映射到一个或多个主分片，并且可以有零个或多个副本分片。 MySQL =&gt;数据库ElasticSearch =&gt;索引</p>
+<p>　　文档类似于关系数据库中的一行。不同之处在于索引中的每个文档可以具有不同的结构（字段），但是对于通用字段应该具有相同的数据类型。 MySQL =&gt; Databases =&gt;Tables =&gt; Columns / Rows ElasticSearch =&gt; Indices =&gt; Types =&gt;具有属性的文档</p>
+<p>类型是索引的逻辑类别/分区，其语义完全取决于用户。</p>
+<p><strong>7.elasticsearch</strong> <strong>索引数据多了怎么办，如何调优</strong></p>
+<p>使用bulk API<br>   初次索引的时候，把 replica 设置为 0<br>   增大 threadpool.index.queue_size<br>   增大 indices.memory.index_buffer_size<br>   增大 index.translog.flush_threshold_ops<br>   增大 index.translog.sync_interval<br>   增大 index.engine.robin.refresh_interval</p>
+<p><strong>Dubbo****和Zookeeper：</strong></p>
+<p><strong>1.</strong> <strong>dubbo****的工作流程</strong></p>
+<p>l provider向注册中心去注册自己为一个服务</p>
+<p>l consumer去注册中心订阅服务,注册中心会通知consumer注册好的服务,consumer会将provider的地址等信息拉取到本地缓存</p>
+<p>l consumer去调用provider</p>
+<p>l consumer和provider都异步的通知监控中心</p>
+<p><strong>2.</strong> <strong>Dubbo****的通信原理？</strong></p>
+<p>l Dubbo底层使用 hessain2进行二进制序列化进行远程调用</p>
+<p>l Dubbo底层使用 netty框架进行异步通信。NIO</p>
+<p><strong>3.</strong> <strong>dubbo****负载均衡策略有哪些?</strong></p>
+<p>l random loadbalance</p>
+<p>l 默认情况下,dubbo是random loadbalance随机调用实现负载均衡,可以对provider不同实例设置不同的权重,会按照权重来负载均衡,权重大分配的流量高     </p>
+<p>l roundrobin loadbalance</p>
+<p>l 默认就是均匀地将流量达到各个机器上,值得注意的是,要根据机器的性能,调整权重。</p>
+<p>l leastactive loadbalance</p>
+<p>l dubbo自动感知,如果某个机器性能越差,那么接收的请求就越少,给不活跃的机器更少的请求 </p>
+<p>l consistanthash loadbalance</p>
+<p>l 一致性hash算法,相同参数的请求一定分发到同一个provider上,provider挂掉的时候,会基于虚拟机节点均匀分配甚于的流量,抖动不会太大.适用于订单,同一个订单的操作,分配到同一个机器上,这样就可以避免高并发场景下,数据库和缓存中数据不一致的情况</p>
+<p><strong>3.zookeeper****注册中心挂了，dubbo可以继续使用吗？</strong></p>
+<p>可以,因为刚开始dubbo初始化的时候,消费者会将提供者的地址等信息缓存到dubbo,注册中心挂了dubbo可以继续通信</p>
+<p>​    </p>
+<p><strong>4.zookeeper</strong> <strong>都有哪些功能？</strong></p>
+<p>l 集群管理：监控节点存活状态、运行请求等。</p>
+<p>l 主节点选举：主节点挂掉了之后可以从备用的节点开始新一轮选主，主节点选举说的就是这个选举的过程，使用 zookeeper 可以协助完成这个过程。</p>
+<p>l 分布式锁：zookeeper 提供两种锁：独占锁、共享锁。独占锁即一次只能有一个线程使用资源，共享锁是读锁共享，读写互斥，即可以有多线线程同时读同一个资源，如果要使用写锁也只能有一个线程使用。zookeeper可以对分布式锁进行控制。</p>
+<p>l 命名服务：在分布式系统中，通过使用命名服务，客户端应用能够根据指定名字来获取资源或服务的地址，提供者等信息。</p>
+<p><strong>5.Zookeeper****的watch机制（通知机制）</strong></p>
+<p>Zookeeper系统中其实类似于window系统中的文件夹，zookeeper可以建立普通节点和临时节点，但是每个节点只能有一个，例如：/a/b/c节点已经存在，那么再来申请/a/b/c的节点就会失败。此时可以设置watch此节点，当/a/b/c节点删除后，会通知watch此节点的所有线程，线程再来创建节点，完成设定的任务。（分布式锁，高可用性）</p>
+<p><strong>6.zookeeper</strong> <strong>怎么保证主从节点的状态同步？</strong></p>
+<p>zookeeper 的核心是原子广播，这个机制保证了各个 server 之间的同步。实现这个机制的协议叫做 zab 协议。 zab 协议有两种模式，分别是恢复模式（选主）和广播模式（同步）。当服务启动或者在领导者崩溃后，zab 就进入了恢复模式，当领导者被选举出来，且大多数 server 完成了和 leader 的状态同步以后，恢复模式就结束了。状态同步保证了 leader 和 server 具有相同的系统状态。</p>
+<p>**7.**<strong>什么是 zab 协议</strong></p>
+<p>ZAB 是 Zookeeper 原子广播协议的简称</p>
+<p>整个ZAB协议主要包括消息广播和崩溃恢复两个过程，进一步可以分为三个阶段，分别是：</p>
+<p>发现 Discovery<br>   同步 Synchronization<br>   广播 Broadcast</p>
+<p>组成ZAB协议的每一个分布式进程，都会循环执行这三个阶段，将这样一个循环称为一个主进程周期。</p>
+<p>**8.**<strong>如果zookeeper服务挂了怎么办？</strong></p>
+<p>注册中心对等集群，任意一台宕掉后，会自动切换到另一台</p>
+<p>  注册中心全部宕掉，服务提供者和消费者仍可以通过本地缓存通讯</p>
+<p>服务提供者无状态，任一台宕机后，不影响使用</p>
+<p>服务提供者全部宕机，服务消费者会无法使用，并无限次重连等待服务者恢复</p>
+<p><strong>分布式系统：</strong></p>
+<p><strong>1.</strong> <strong>怎么实现远程通信</strong></p>
+<p>什么是远程通信:简单来说，就是一个系统去调用另一个系统中的数据.</p>
+<p>常见的有三种方式：</p>
+<p>(1)Webservice的方式：</p>
+<p>  1)优点：跨语言跨平台</p>
+<p>  2)缺点：它是基于soap协议的，使用http+xml的方式进行数据传输，http是应用层协议，传输效率不是很高，而且xml的解析也比 较费时，所以项目内部进行通信的时候，不建议使用Websservice的方式</p>
+<p>(2)restful形式的服务：</p>
+<p>  1)优点：restful本身就是http，使用的是http+json的方式进行数据传输，因为json数据本身是非常简洁的，所以它比webservice的 传输效率更高；手机app端一般都使用该方法，其他很多项目也是用这种方式</p>
+<p>  2)缺点：如果服务太多的话，会出现服务之间调用关系混乱，此时就需要治理服务</p>
+<p>(3)Dubbo：</p>
+<p>   使用的是RPC协议进行远程调用，RPC协议是一个二进制协议，直接使用的socket进行通信，传输效率高，并且可以统计出系统 之间的调用关系和调用次数系统分布式SAO系统的内部通信推荐使用dubbo</p>
+<p><strong>2.</strong> <strong>分布式事务：</strong>  </p>
+<p>TCC方案(Try,Confirm,Cancel)</p>
+<p>l Try:此阶段是对各个服务的资源做检测以及对资源进行锁定或者预留</p>
+<p>l Confirm:此阶段是在各个服务中执行实际的操作</p>
+<p>l Cancel:如果任何一个服务的业务执行出错,就要进行补偿,将已经执行成功的业务逻辑回滚操作</p>
+<p>l 这种方案的事务回滚实际上是依赖于自己写代码来回滚和补偿,补偿代码巨大,除了一些严格保证分布式事务的场景,比如和资金,订单相关的业务,尽量少使用</p>
+<p>​    </p>
+<p>本地消息表(ebay)</p>
+<p>l A系统在自己本地一个事务里操作同时,插入一条数据到消息表</p>
+<p>l A系统将这个消息发送到MQ中</p>
+<p>l B系统接收到消息之后,在一个事务里,往自己本地消息表中插入一条数据,同时执行其他业务操作,如果这个消息已经被处理了,那么此时这个消息会回滚,这样保证不会重复处理消息</p>
+<p>l B系统执行成功后,就会更新本地消息表的状态以及A系统消息表的状态</p>
+<p>l 如果B系统处理失败了,就不会更新消息表状态,A系统会定时扫描自己的消息表,没有处理的消息,会再次发送到MQ中,让B处理</p>
+<p>l 这个方案为了保证最终一致性,哪怕B事务失败了,A会不断重发消息,直到B成功为止;此外最大的问题是严重依赖数据库的消息表来管理事务,不适用高并发的场景,扩展性能差</p>
+<p>​     </p>
+<p>可靠消息最终一致性方案</p>
+<p>l 这个方案是基于阿里的rocketMQ(3.3.6之前)来实现,是目前比较国内比较常用的方案</p>
+<p>l A系统发送一个prepared消息到mq,如果prepared消息发送失败,就直接取消操作</p>
+<p>l 如果消息发送成功,就接着执行本地事务,如果成功就给mq发送确认消息,如果失败就告诉mq回滚消息</p>
+<p>l 如果发送了确认消息,B系统就会接收到,然后执行本地的事务</p>
+<p>l mq会定时轮询所有prepared消息,回调接口,所有没发送确认消息的,问你继续重试还是回滚,然后A系统就去查看本地事务的状态,如果回滚,告诉mq回滚消息,如果成功了就重新发送确认消息</p>
+<p>l 如果B系统的事务失败,自动不断重试,直到成功,如果实在不行就让B系统本地回滚,然后想办法通知A系统也回滚,或者是发送警报由人工手动回滚和补偿</p>
+<p>​      </p>
+<p>最大努力通知方案</p>
+<p>l A系统本地事务执行完后,发送消息到MQ</p>
+<p>l 有个服务会消费MQ中的消息,然后写入数据库记录下来,或者放入内存队列中,接着调用B系统的接口</p>
+<p>l 要是B系统执行成功就ok,执行失败,就最大努力通知服务定时尝试重新调用B系统,反复N次,实在不行就放弃</p>
+<p><strong>3.</strong> <strong>系统的高并发问题是怎么解决的</strong></p>
+<p>并发问题高，这个问题的解决方案是一个系统性的，系统的每一层面都需要做优化：</p>
+<p>1） 数据层</p>
+<p>a)  集群</p>
+<p>b)  分表分库</p>
+<p>c)  开启索引</p>
+<p>d)  开启缓存</p>
+<p>e)  表设计优化</p>
+<p>f)   Sql语句优化</p>
+<p>g)  缓存服务器（提高查询效率，减轻数据库压力）</p>
+<p>h)  搜索服务器（提高查询效率，减轻数据库压力）</p>
+<p>2）项目层</p>
+<p>a)  采用面向服务分布式架构（分担服务器压力，提高并发能力）</p>
+<p>b)  采用并发访问较高的详情系统采用静态页面</p>
+<p>c)  使用页面缓存</p>
+<p>d)  用 ActiveMQ使得业务进一步进行解耦，提高业务处理能力</p>
+<p>e)  使用分布式文件系统存储海量文件</p>
+<p>3） 应用层</p>
+<p>a)  Nginx服务器来做负载均衡</p>
+<p>b)  Lvs做二层负载 </p>
+<p><strong>4.</strong> <strong>分布式锁的问题</strong></p>
+<p>针对分布式锁的实现，目前比较常用的有以下几种方案：</p>
+<p>1.基于数据库实现分布式锁</p>
+<p>2.基于缓存（redis，memcached，tair）实现分布式锁</p>
+<p>3.基于 zookeeper实现分布式锁</p>
+<h3 id="1-什么是MongoDB"><a href="#1-什么是MongoDB" class="headerlink" title="1.什么是MongoDB"></a>1.什么是MongoDB</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">MongoDB是一个文档数据库，提供好的性能，领先的非关系型数据库。采用BSON存储文档数据。<br>BSON（）是一种类<span class="hljs-type">json</span>的一种二进制形式的存储格式，简称Binary <span class="hljs-type">JSON</span>.<br>相对于<span class="hljs-type">json</span>多了<span class="hljs-type">date</span>类型和二进制数组。<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-MongoDB的优势有哪些"><a href="#2-MongoDB的优势有哪些" class="headerlink" title="2.MongoDB的优势有哪些"></a>2.MongoDB的优势有哪些</h3><ul>
+<li>面向文档的存储：以 JSON 格式的文档保存数据。</li>
+<li>任何属性都可以建立索引。</li>
+<li>复制以及高可扩展性。</li>
+<li>自动分片。</li>
+<li>丰富的查询功能。</li>
+<li>快速的即时更新。</li>
+</ul>
+<h3 id="29-什么是NoSQL数据库？NoSQL和RDBMS有什么区别？在哪些情况下使用和不使用NoSQL数据库？"><a href="#29-什么是NoSQL数据库？NoSQL和RDBMS有什么区别？在哪些情况下使用和不使用NoSQL数据库？" class="headerlink" title="29 什么是NoSQL数据库？NoSQL和RDBMS有什么区别？在哪些情况下使用和不使用NoSQL数据库？"></a>29 什么是NoSQL数据库？NoSQL和RDBMS有什么区别？在哪些情况下使用和不使用NoSQL数据库？</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">　NoSQL是非关系型数据库，NoSQL = <span class="hljs-keyword">Not</span> <span class="hljs-keyword">Only</span> <span class="hljs-keyword">SQL</span>。  关系型数据库采用的结构化的数据，NoSQL采用的是键值对的方式存储数据。<br>在处理非结构化/半结构化的大数据时；在水平方向上进行扩展时；随时应对动态增加的数据项时可以优先考虑使用NoSQL数据库。<br><br>在考虑数据库的成熟度；支持；分析和商业智能；管理及专业性等问题时，应优先考虑关系型数据库。<br></code></pre></td></tr></table></figure>
+
+<h3 id="3-什么是数据库"><a href="#3-什么是数据库" class="headerlink" title="3 什么是数据库"></a>3 什么是数据库</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">　　数据库可以看成是一个电子化的文件柜,用户可以对文件中的数据运行新增、检索、更新、删除等操作。数据库是一个<br>所有集合的容器，在文件系统中每一个数据库都有一个相关的物理文件。<br></code></pre></td></tr></table></figure>
+
+<h3 id="4-什么是集合-表"><a href="#4-什么是集合-表" class="headerlink" title="4.什么是集合(表)"></a>4.什么是集合(表)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">    集合就是一组 MongoDB 文档。它相当于关系型数据库（RDBMS）中的表这种概念。集合位于单独的一个数据库中。<br>一个集合内的多个文档可以有多个不同的字段。一般来说，集合中的文档都有着相同或相关的目的。<br></code></pre></td></tr></table></figure>
+
+<h3 id="5-什么是文档-记录"><a href="#5-什么是文档-记录" class="headerlink" title="5 什么是文档(记录)"></a>5 什么是文档(记录)</h3><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sas">　　文档由一组<span class="hljs-meta">key</span> value组成。文档是动态模式,这意味着同一集合里的文档不需要有相同的字段和结构。在关系型<br>数据库中<span class="hljs-meta">table</span>中的每一条记录相当于MongoDB中的一个文<br></code></pre></td></tr></table></figure>
+
+<h3 id="6-MongoDB和关系型数据库术语对比图"><a href="#6-MongoDB和关系型数据库术语对比图" class="headerlink" title="6 MongoDB和关系型数据库术语对比图"></a>6 MongoDB和关系型数据库术语对比图</h3><p><img src="https://img2018.cnblogs.com/blog/1521877/201904/1521877-20190429170250020-1693717595.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="7-什么是非关系型数据库"><a href="#7-什么是非关系型数据库" class="headerlink" title="7.什么是非关系型数据库"></a>7.什么是非关系型数据库</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">　　非关系型数据库的显著特点是不使用<span class="hljs-keyword">SQL</span>作为查询语言，数据存储不需要特定的表格模式。<br></code></pre></td></tr></table></figure>
+
+<h3 id="8-为什么用MOngoDB？"><a href="#8-为什么用MOngoDB？" class="headerlink" title="8 为什么用MOngoDB？"></a>8 为什么用MOngoDB？</h3><ul>
+<li>架构简单</li>
+<li>没有复杂的连接</li>
+<li>深度查询能力,MongoDB支持动态查询。</li>
+<li>容易调试</li>
+<li>容易扩展</li>
+<li>不需要转化/映射应用对象到数据库对象</li>
+<li>使用内部内存作为存储工作区,以便更快的存取数据。</li>
+</ul>
+<h3 id="9-在哪些场景使用MongoDB"><a href="#9-在哪些场景使用MongoDB" class="headerlink" title="9 在哪些场景使用MongoDB"></a>9 在哪些场景使用MongoDB</h3><ul>
+<li>大数据</li>
+<li>内容管理系统</li>
+<li>移动端Apps</li>
+<li>数据管理</li>
+</ul>
+<h3 id="10-MongoDB中的命名空间是什么意思"><a href="#10-MongoDB中的命名空间是什么意思" class="headerlink" title="10 MongoDB中的命名空间是什么意思?"></a>10 MongoDB中的命名空间是什么意思?</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">mongodb</span>存储<span class="hljs-selector-tag">bson</span>对象在丛集(collection)中.数据库名字和丛集名字以句点连结起来叫做名字空间(namespace).<br><br>　　一个集合命名空间又有多个数据域(extent)，集合命名空间里存储着集合的元数据，比如集合名称，集合的第一个数据域和最后一个数据域的位置等等。而一个数据域由若干条文档(document)组成，每个数据域都有一个头部，记录着第一条文档和最后一条文档的为知，以及该数据域的一些元数据。<span class="hljs-selector-tag">extent</span>之间，<span class="hljs-selector-tag">document</span>之间通过双向链表连接。<br><br>索引的存储数据结构是<span class="hljs-selector-tag">B</span>树，索引命名空间存储着对<span class="hljs-selector-tag">B</span>树的根节点的指针。<br></code></pre></td></tr></table></figure>
+
+<h3 id="11-monogodb-中的分片什么意思"><a href="#11-monogodb-中的分片什么意思" class="headerlink" title="11 monogodb 中的分片什么意思"></a>11 monogodb 中的分片什么意思</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs">　　分片是将数据水平切分到不同的物理节点。当应用数据越来越大的时候，数据量也会越来越大。当数据量增长<br>时，单台机器有可能无法存储数据或可接受的读取写入吞吐量。利用分片技术可以添加更多的机器来应对数据量增加<br>以及读写操作的要求。<br></code></pre></td></tr></table></figure>
+
+<h3 id="12-为什么要在MongoDB中使用分析器"><a href="#12-为什么要在MongoDB中使用分析器" class="headerlink" title="12 为什么要在MongoDB中使用分析器"></a>12 为什么要在MongoDB中使用分析器</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs abnf">　　mongodb中包括了一个可以显示数据库中每个操作性能特点的数据库分析器.通过这个分析器你可以找到比预期慢<br>的查询(或写操作)<span class="hljs-comment">;利用这一信息,比如,可以确定是否需要添加索引.</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="13-MongoDB支持主键外键关系吗"><a href="#13-MongoDB支持主键外键关系吗" class="headerlink" title="13 .MongoDB支持主键外键关系吗"></a>13 .MongoDB支持主键外键关系吗</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">　　默认MongoDB不支持主键和外键关系。 用Mongodb本身的API需要硬编码才能实现外键关联，不够直观且难度<br>较大<br></code></pre></td></tr></table></figure>
+
+<h3 id="14-MongoDB支持哪些数据类型"><a href="#14-MongoDB支持哪些数据类型" class="headerlink" title="14 MongoDB支持哪些数据类型"></a>14 MongoDB支持哪些数据类型</h3><ul>
+<li><ul>
+<li>String</li>
+<li>Integer</li>
+<li>Double</li>
+<li>Boolean</li>
+<li>Object</li>
+<li>Object ID</li>
+<li>Arrays</li>
+<li>Min/Max Keys</li>
+<li>Datetime</li>
+<li>Code</li>
+<li>Regular Expression等</li>
+</ul>
+</li>
+</ul>
+<h3 id="15-为什么要在MongoDB中用”Code”数据类型"><a href="#15-为什么要在MongoDB中用”Code”数据类型" class="headerlink" title="15 为什么要在MongoDB中用”Code”数据类型"></a>15 为什么要在MongoDB中用”Code”数据类型</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-string">&quot;Code&quot;</span>类型用于在文档中存储 <span class="hljs-keyword">JavaScript </span>代码。<br></code></pre></td></tr></table></figure>
+
+<h3 id="16-为什么要在MongoDB中用”Regular-Expression”数据类型"><a href="#16-为什么要在MongoDB中用”Regular-Expression”数据类型" class="headerlink" title="16 为什么要在MongoDB中用”Regular Expression”数据类型"></a>16 为什么要在MongoDB中用”Regular Expression”数据类型</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;Regular Expression&quot;</span>类型用于在文档中存储正则表达式<br></code></pre></td></tr></table></figure>
+
+<h3 id="17-为什么在MongoDB中使用”Object-ID”数据类型"><a href="#17-为什么在MongoDB中使用”Object-ID”数据类型" class="headerlink" title="17 为什么在MongoDB中使用”Object ID”数据类型"></a>17 为什么在MongoDB中使用”Object ID”数据类型</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript"><span class="hljs-string">&quot;ObjectID&quot;</span>数据类型用于存储文档<span class="hljs-built_in">id</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="18”ObjectID”有哪些部分组成"><a href="#18”ObjectID”有哪些部分组成" class="headerlink" title="18”ObjectID”有哪些部分组成"></a>18”ObjectID”有哪些部分组成</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">一共有四部分组成:时间戳、客户端ID、客户进程ID、三个字节的增量计数器</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="19-在MongoDb中什么是索引"><a href="#19-在MongoDb中什么是索引" class="headerlink" title="19 在MongoDb中什么是索引"></a>19 在MongoDb中什么是索引</h3><figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs erlang">索引用于高效的执行查询,没有索引的MongoDB将扫描整个集合中的所有文档,这种扫描效率很低,需要处理大量的数据.<br>索引是一种特殊的数据结构,将一小块数据集合保存为容易遍历的形式.索引能够存储某种特殊字段或字段集的值,并按照索引指定的方式将字段值进行排序.<br></code></pre></td></tr></table></figure>
+
+<h3 id="20-如何添加索引"><a href="#20-如何添加索引" class="headerlink" title="20 如何添加索引"></a>20 如何添加索引</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">使用db<span class="hljs-selector-class">.collection</span><span class="hljs-selector-class">.createIndex</span>()在集合中创建一个索引<br></code></pre></td></tr></table></figure>
+
+<h3 id="21-如何查询集合中的文档"><a href="#21-如何查询集合中的文档" class="headerlink" title="21.如何查询集合中的文档"></a>21.如何查询集合中的文档</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">db.collectionName.<span class="hljs-builtin-name">find</span>(&#123;key:value&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="22用什么方法可以格式化输出结果"><a href="#22用什么方法可以格式化输出结果" class="headerlink" title="22用什么方法可以格式化输出结果"></a>22用什么方法可以格式化输出结果</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">db<span class="hljs-selector-class">.collectionName</span><span class="hljs-selector-class">.find</span>()<span class="hljs-selector-class">.pretty</span>()<br></code></pre></td></tr></table></figure>
+
+<h3 id="23-如何使用”AND”或”OR”条件循环查询集合中的文档"><a href="#23-如何使用”AND”或”OR”条件循环查询集合中的文档" class="headerlink" title="23 如何使用”AND”或”OR”条件循环查询集合中的文档"></a>23 如何使用”AND”或”OR”条件循环查询集合中的文档</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-tag">db</span><span class="hljs-selector-class">.mycol</span><span class="hljs-selector-class">.find</span>(<br>   &#123;<br>      $or: [<br>         &#123;key1: value1&#125;, &#123;key2:value2&#125;<br>      ]<br>   &#125;<br>)<span class="hljs-selector-class">.pretty</span>()<br></code></pre></td></tr></table></figure>
+
+<h3 id="24-更新数据"><a href="#24-更新数据" class="headerlink" title="24 更新数据"></a>24 更新数据</h3><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">db.collectionName.update(&#123;key:<span class="hljs-type">value</span>&#125;,&#123;$<span class="hljs-keyword">set</span>:<span class="hljs-type"></span>&#123;<span class="hljs-keyword">new</span><span class="hljs-type">key</span>:<span class="hljs-keyword">new</span><span class="hljs-type">Value</span>&#125;&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="25-如何删除文档"><a href="#25-如何删除文档" class="headerlink" title="25 如何删除文档"></a>25 如何删除文档</h3><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs maxima">db.collectionName.<span class="hljs-built_in">remove</span>(&#123;<span class="hljs-built_in">key</span>:value&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="26-在MongoDB中如何排序"><a href="#26-在MongoDB中如何排序" class="headerlink" title="26 在MongoDB中如何排序"></a>26 在MongoDB中如何排序</h3><p>并使用 1 和 -1 来指定排序方式，其中 1 表示升序，而 -1 表示降序。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">db<span class="hljs-selector-class">.connectionName</span><span class="hljs-selector-class">.find</span>(&#123;key:value&#125;)<span class="hljs-selector-class">.sort</span>(&#123;columnName:<span class="hljs-number">1</span>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h3 id="27-什么是聚合"><a href="#27-什么是聚合" class="headerlink" title="27 什么是聚合"></a>27 什么是聚合</h3><p>　　聚合操作能够处理数据记录并返回计算结果。聚合操作能将多个文档中的值组合起来，对成组数据执行各种操作，返回单一的结果。它相当于 SQL 中的 count(*) 组合 group by。对于 MongoDB 中的聚合操作，应该使用<code>aggregate()</code>方法。</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">db.<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">COLLECTION_NAME</span>.</span></span>aggregate(AGGREGATE_OPERATION)<br></code></pre></td></tr></table></figure>
+
+<h3 id="28-在MongoDB中什么是副本集（避免单点故障）"><a href="#28-在MongoDB中什么是副本集（避免单点故障）" class="headerlink" title="28 在MongoDB中什么是副本集（避免单点故障）"></a>28 在MongoDB中什么是副本集（避免单点故障）</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs less">    在<span class="hljs-selector-tag">MongoDB</span>中副本集由一组<span class="hljs-selector-tag">MongoDB</span>实例组成，包括一个主节点多个次节点，<span class="hljs-selector-tag">MongoDB</span>客户端的所有数据都<br>写入主节点(Primary),副节点从主节点同步写入数据，以保持所有复制集内存储相同的数据，提高数据可用性。<br></code></pre></td></tr></table></figure>
+
+<h3 id="30-MongoDB支持存储过程吗？如果支持的话，怎么用？"><a href="#30-MongoDB支持存储过程吗？如果支持的话，怎么用？" class="headerlink" title="30 MongoDB支持存储过程吗？如果支持的话，怎么用？"></a>30 MongoDB支持存储过程吗？如果支持的话，怎么用？</h3><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs x86asm">MongoDB支持存储过程，它是javascript写的，保存在<span class="hljs-built_in">db</span><span class="hljs-number">.</span>system<span class="hljs-number">.</span><span class="hljs-keyword">js</span>表中。<br></code></pre></td></tr></table></figure>
+
+<h3 id="31如何理解MongoDB中的GridFS机制，MongoDB为何使用GridFS来存储文件？"><a href="#31如何理解MongoDB中的GridFS机制，MongoDB为何使用GridFS来存储文件？" class="headerlink" title="31如何理解MongoDB中的GridFS机制，MongoDB为何使用GridFS来存储文件？"></a>31如何理解MongoDB中的GridFS机制，MongoDB为何使用GridFS来存储文件？</h3><p>　　GridFS是一种将大型文件存储在MongoDB中的文件规范。使用GridFS可以将大文件分隔成多个小文档存放，这样我们能够有效的保存大文档，而且解决了BSON对象有限制的问题。</p>
+<h3 id="32-为什么MongoDB的数据文件很大？"><a href="#32-为什么MongoDB的数据文件很大？" class="headerlink" title="32 为什么MongoDB的数据文件很大？"></a>32 为什么MongoDB的数据文件很大？</h3><p>　　MongoDB采用的预分配空间的方式来防止文件碎片。</p>
+<h3 id="33-当更新一个正在被迁移的块（Chunk）上的文档时会发生什么？"><a href="#33-当更新一个正在被迁移的块（Chunk）上的文档时会发生什么？" class="headerlink" title="33 当更新一个正在被迁移的块（Chunk）上的文档时会发生什么？"></a>33 当更新一个正在被迁移的块（Chunk）上的文档时会发生什么？</h3><p>　　更新操作会立即发生在旧的块（Chunk）上，然后更改才会在所有权转移前复制到新的分片上。</p>
+<h3 id="34-MongoDB在A-B-C-上建立索引，查询A-B-C-和A-C-B-都会使用索引吗？"><a href="#34-MongoDB在A-B-C-上建立索引，查询A-B-C-和A-C-B-都会使用索引吗？" class="headerlink" title="34 MongoDB在A:{B,C}上建立索引，查询A:{B,C}和A:{C,B}都会使用索引吗？"></a>34 MongoDB在A:{B,C}上建立索引，查询A:{B,C}和A:{C,B}都会使用索引吗？</h3><p>　　不会，只会在A:{B,C}上使用索引。</p>
+<h3 id="35-mongodb成为最好nosql数据库的原因是什么"><a href="#35-mongodb成为最好nosql数据库的原因是什么" class="headerlink" title="35 mongodb成为最好nosql数据库的原因是什么?"></a>35 mongodb成为最好nosql数据库的原因是什么?</h3><p>　　面向文件的 高性能 高可用性 易扩展性 丰富的查询语言</p>
+<h3 id="36-如果用户移除对象的属性-该属性是否从存储层中删除"><a href="#36-如果用户移除对象的属性-该属性是否从存储层中删除" class="headerlink" title="36 如果用户移除对象的属性,该属性是否从存储层中删除?"></a>36 如果用户移除对象的属性,该属性是否从存储层中删除?</h3><p>　　是的,用户移除属性然后对象会重新保存(re-save()).</p>
+<h3 id="37-允许空值null吗"><a href="#37-允许空值null吗" class="headerlink" title="37 允许空值null吗?"></a>37 允许空值null吗?</h3><p>　　对于对象成员而言,是的.然而用户不能够添加空值(null)到数据库丛集(collection)因为空值不是对象.然而用户能够添加空对象{}.</p>
+<h3 id="38-更新操作立刻fsync到磁盘"><a href="#38-更新操作立刻fsync到磁盘" class="headerlink" title="38 更新操作立刻fsync到磁盘?"></a>38 更新操作立刻fsync到磁盘?</h3><p>　　不会,磁盘写操作默认是延迟执行的.写操作可能在两三秒(默认在60秒内)后到达磁盘.例如,如果一秒内数据库收到一千个对一个对象递增的操作,仅刷新磁盘一次.</p>
+<h3 id="39-如何执行事务-加锁"><a href="#39-如何执行事务-加锁" class="headerlink" title="39 如何执行事务/加锁?"></a>39 如何执行事务/加锁?</h3><p>　　mongodb没有使用传统的锁或者复杂的带回滚的事务,因为它设计的宗旨是轻量,快速以及可预计的高性能.可以把它类比成mysql mylsam的自动提交模式.通过精简对事务的支持,性能得到了提升,特别是在一个可能会穿过多个服务器的系统里.</p>
+<h3 id="40-启用备份故障恢复需要多久"><a href="#40-启用备份故障恢复需要多久" class="headerlink" title="40 启用备份故障恢复需要多久?"></a>40 启用备份故障恢复需要多久?</h3><p>　　从备份数据库声明主数据库宕机到选出一个备份数据库作为新的主数据库将花费10到30秒时间.这期间在主数据库上的操作将会失败–包括写入和强一致性读取(strong consistent read)操作.然而,你还能在第二数据库上执行最终一致性查询(eventually consistent query)(在slaveok模式下),即使在这段时间里.</p>
+<h3 id="41-什么是master或primary"><a href="#41-什么是master或primary" class="headerlink" title="41 什么是master或primary?"></a>41 什么是master或primary?</h3><p>　　它是当前备份集群(replica set)中负责处理所有写入操作的主要节点/成员.在一个备份集群中,当失效备援(failover)事件发生时,一个另外的成员会变成primary.</p>
+<h3 id="42-我应该启动一个集群分片-sharded-还是一个非集群分片的-mongodb-环境"><a href="#42-我应该启动一个集群分片-sharded-还是一个非集群分片的-mongodb-环境" class="headerlink" title="42 我应该启动一个集群分片(sharded)还是一个非集群分片的 mongodb 环境?"></a>42 我应该启动一个集群分片(sharded)还是一个非集群分片的 mongodb 环境?</h3><p>　　(数据量大用集群分片,数据量小用非集群)</p>
+<p>　　为开发便捷起见,我们建议以非集群分片(unsharded)方式开始一个 mongodb 环境,除非一台服务器不足以存放你的初始数据集.从非集群分片升级到集群分片(sharding)是无缝的,所以在你的数据集还不是很大的时候没必要考虑集群分片(sharding).</p>
+<h3 id="43-分片-sharding-和复制-replication-是怎样工作的"><a href="#43-分片-sharding-和复制-replication-是怎样工作的" class="headerlink" title="43 分片(sharding)和复制(replication)是怎样工作的?"></a>43 分片(sharding)和复制(replication)是怎样工作的?</h3><p>　　每一个分片(shard)是一个分区数据的逻辑集合.分片可能由单一服务器或者集群组成,我们推荐为每一个分片(shard)使用集群.</p>
+<h3 id="44数据在什么时候才会扩展到多个分片-shard-里"><a href="#44数据在什么时候才会扩展到多个分片-shard-里" class="headerlink" title="44数据在什么时候才会扩展到多个分片(shard)里?"></a>44数据在什么时候才会扩展到多个分片(shard)里?</h3><p>　　mongodb 分片是基于区域(range)的.所以一个集合(collection)中的所有的对象都被存放到一个块(chunk)中.只有当存在多余一个块的时候,才会有多个分片获取数据的选项.现在,每个默认块的大小是 64mb,所以你需要至少 64 mb 空间才可以实施一个迁移.</p>
+<h3 id="45-当我试图更新一个正在被迁移的块-chunk-上的文档时会发生什么"><a href="#45-当我试图更新一个正在被迁移的块-chunk-上的文档时会发生什么" class="headerlink" title="45 当我试图更新一个正在被迁移的块(chunk)上的文档时会发生什么?"></a>45 当我试图更新一个正在被迁移的块(chunk)上的文档时会发生什么?</h3><p>　　更新操作会立即发生在旧的分片(shard)上,然后更改才会在所有权转移(ownership transfers)前复制到新的分片上.</p>
+<h3 id="46-如果在一个分片-shard-停止或者很慢的时候-我发起一个查询会怎样"><a href="#46-如果在一个分片-shard-停止或者很慢的时候-我发起一个查询会怎样" class="headerlink" title="46 如果在一个分片(shard)停止或者很慢的时候,我发起一个查询会怎样?"></a>46 如果在一个分片(shard)停止或者很慢的时候,我发起一个查询会怎样?</h3><p>　　如果一个分片(shard)停止了,除非查询设置了“partial”选项,否则查询会返回一个错误.如果一个分片(shard)响应很慢,mongodb则会等待它的响应.</p>
+<h3 id="47-可以把movechunk目录里的旧文件删除吗"><a href="#47-可以把movechunk目录里的旧文件删除吗" class="headerlink" title="47 可以把movechunk目录里的旧文件删除吗?"></a>47 可以把movechunk目录里的旧文件删除吗?</h3><p>　　没问题,这些文件是在分片(shard)进行均衡操作(balancing)的时候产生的临时文件.一旦这些操作已经完成,相关的临时文件也应该被删除掉.但目前清理工作是需要手动的,所以请小心地考虑再释放这些文件的空间.</p>
+<h3 id="48-如果块移动操作-movechunk-失败了-我需要手动清除部分转移的文档吗"><a href="#48-如果块移动操作-movechunk-失败了-我需要手动清除部分转移的文档吗" class="headerlink" title="48 如果块移动操作(movechunk)失败了,我需要手动清除部分转移的文档吗?"></a>48 如果块移动操作(movechunk)失败了,我需要手动清除部分转移的文档吗?</h3><p> 　不需要,移动操作是一致(consistent)并且是确定性的(deterministic);一次失败后,移动操作会不断重试;当完成后,数据只会出现在新的分片里(shard).</p>
+<h3 id="49-mongodb是否支持事务"><a href="#49-mongodb是否支持事务" class="headerlink" title="49 mongodb是否支持事务"></a>49 mongodb是否支持事务</h3><p>　　MongoDB 4.0的新特性——事务（Transactions）：MongoDB 是不支持事务的，因此开发者在需要用到事务的时候，不得不借用其他工具，在业务代码层面去弥补数据库的不足。</p>
+<p>　　事务和会话(Sessions)关联，一个会话同一时刻只能开启一个事务操作，当一个会话断开，这个会话中的事务也会结束。</p>
 
             </div>
             <hr>
