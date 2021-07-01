@@ -4,9 +4,9 @@
   
   
   <entry>
-    <title>移动支付项目（实现中...）</title>
-    <link href="/2021/07/01/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E9%A1%B9%E7%9B%AE/"/>
-    <url>/2021/07/01/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E9%A1%B9%E7%9B%AE/</url>
+    <title>移动支付项目(实施中...)</title>
+    <link href="/2021/07/01/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E9%A1%B9%E7%9B%AE(%E5%AE%9E%E6%96%BD%E4%B8%AD...)/"/>
+    <url>/2021/07/01/%E7%A7%BB%E5%8A%A8%E6%94%AF%E4%BB%98%E9%A1%B9%E7%9B%AE(%E5%AE%9E%E6%96%BD%E4%B8%AD...)/</url>
     
     <content type="html"><![CDATA[<h6 id="移动支付项目"><a href="#移动支付项目" class="headerlink" title="移动支付项目"></a>移动支付项目</h6><p>基础模块-延迟任务</p><p>什么是延迟任务？</p><p>外卖订单，淘宝订单，12306下单等待支付业务</p><p>定时任务与延迟任务的区别：</p><p> 定时任务往往是固定周期的，有明确的触发时间。而延迟任务一般没有固定的开始时间，它常常是由一个事件 触发的，而在这个事件触发之后的一段时间内触发另一个事件，任务可以立即执行，也可以延迟，任务之间也可以 建立一定联系； </p><p>场景一： 订单下单之后30分钟后，如果用户没有付钱，则系统自动取消订单；如果期间下单成功，任务取消 </p><p>场景二：接口对接出现网络问题，1分钟后重试，如果失败，2分钟重试，直到出现阈值终止 </p><p><img src="C:\Users\MashiroShiina\Desktop\流程图.jpg" alt="流程图"></p><p>延迟任务的实现方案：</p><p>1：单机版方案：基于jdk中的定时器 </p><p>2：消息中间件方案 </p><p>3：自定义分布式延迟任务方案</p><p>环境搭建</p><p>环境说明</p><p>JDK1.8 </p><p>数据库 mysql8 </p><p>开发工具 IntelliJ IDEA </p><p>Maven：<a href="http://maven.aliyun.com/nexus/content/groups/public">http://maven.aliyun.com/nexus/content/groups/public</a></p><p>VMware Workstation：centOS7镜像</p><p>移动支付项目基础环境基于docker</p><p>系统模块介绍</p><p><img src="C:\Users\MashiroShiina\Desktop\流程图2.png" alt="流程图2"></p>]]></content>
     
